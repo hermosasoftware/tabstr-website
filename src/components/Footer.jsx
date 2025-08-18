@@ -11,10 +11,6 @@ const footerData = [
   {
     title: "Important Links",
     items: [
-      "Organization Team",
-      "Our Journeys",
-      "Pricing Plans",
-      "Roadmap",
       "Terms & Conditions",
       "Privacy Policy",
     ],
@@ -124,6 +120,18 @@ export const Footer = () => {
                   ))}
                 </ul>
               </div>
+            </div>
+          </div>
+          <div className="w-full border-t border-bgDark3 mt-16 pt-8">
+            <div className="w-full flex justify-center mb-4">
+              <span className="text-gray-400 text-sm">
+                ©{new Date().getFullYear()} Tabstr
+              </span>
+            </div>
+            <div className="w-full flex justify-center">
+              <span className="text-gray-500 text-xs">
+                Powered by Hermosa Software LLC
+              </span>
             </div>
           </div>
         </div>
