@@ -19,7 +19,7 @@ export const Hero = () => {
           transition={{ duration: 0.5 }}
         >
           <h3 className="text-secondaryColor text-sm sm:text-base  mb-6 sm:mt-32 mt-16  font-bold">
-            Discover new data flow
+            Un POS moderno y simple en la nube
           </h3>
         </motion.div>
         <motion.div
@@ -40,8 +40,7 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <h2 className="text-secondaryText text-sm lg:text-base xl:text-lg sm:text-base mt-10 px-12 sm:px-48 ">
-            Experience seamless business integrations and powerful insights with
-            our cutting-edge analytic tools.
+            Olvídate de los POS caros y anticuados. Usa tu celular, tablet o computadora y empieza a vender en minutos.
           </h2>
         </motion.div>
         <motion.div
@@ -57,13 +56,13 @@ export const Hero = () => {
             >
               Get Started
             </button>
-            <button
+            {/* <button
               className="w-64 sm:w-52 h-12 rounded-xl font-bold text-primaryText border border-solid  flex justify-center items-center cursor-pointer bg-bgDark2 hover:bg-bgDark3 border-primaryColor transition"
               onClick={() => setIsModalOpen(true)}
               aria-label="Live demo"
             >
               Live demo
-            </button>
+            </button> */}
           </div>
         </motion.div>
         <motion.div
