@@ -33,6 +33,7 @@ export const Navbar = () => {
             <div className="flex justify-start items-center">
               <div className="text-white mr-2">
                 <TabstrLogo />
+                <span className="text-white text-xs w-full block text-center">Lightning Fast</span>
               </div>
             </div>
           </a>
