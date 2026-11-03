@@ -16,8 +16,9 @@ export const Features2 = () => (
           <div className="mb-8 lg:mb-0 w-full px-2 lg:pl-16 flex flex-col justify-center md:pl-8">
             <img
               src={salesStats.src}
-              alt="Estadísticas de ventas en tiempo real en Tabstr POS"
+              alt="Estadísticas de ventas en tiempo real del POS Tabstr en un restaurante de Costa Rica"
               className="rounded-xl  main-border-gray"
+              loading="lazy"
             />
           </div>
         </div>
@@ -30,21 +31,37 @@ export const Features2 = () => (
             </h2>
             <p className="mb-12 text-secondaryText leading-loose">
               Cada detalle de este POS existe por una razón: Resolver los problemas reales que tienen los negocios todos los días.
-              Desde importar tus facturas XML para actualizar el inventario, hasta mostrar mensajes internos al equipo o 
-              guardar comprobantes de pagos por SINPE móvil.<br/>
+              Desde importar tus facturas XML para actualizar el inventario, hasta mostrar mensajes internos al equipo,
+              guardar comprobantes de pagos por SINPE móvil, recibir reservas o marcar la asistencia del personal.<br/>
             </p>
             <ul className="mb-6 text-primaryText">
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Importa facturas XML y de forma automática actualiza tu inventario</span>
+                <span>Importa facturas XML y de forma automática actualiza tu inventario.</span>
               </li>
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Soporte para Sinpe móvil. Captura y registra comprobante de los pagos</span>
+                <span>Soporte para Sinpe móvil. Captura y registra comprobante de los pagos.</span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Soporta pagos con Bitcoin</span>
               </li>
               <li className="mb-4 flex">
                 <CheckArrowIcon />
                 <span>Facturación electrónica con el API versión 4.4 de Hacienda.</span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Si se va el internet sigue funcionando.</span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Reservas: créalas en Tabstr o compartí el link del local para que el cliente reserve solo.</span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Control de asistencia: el personal marca entrada y salida con el rostro, y el reporte muestra tardías, salidas tempranas y horas.</span>
               </li>
             </ul>
           </div>

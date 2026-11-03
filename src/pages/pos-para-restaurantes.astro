@@ -1,0 +1,74 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "POS para restaurantes Costa Rica | Tabstr punto de venta";
+const description =
+  "Tabstr POS para restaurantes en Costa Rica: mesas, reservas, cocina, SINPE, Hacienda 4.4 y control de asistencia, sin licencia por dispositivo.";
+const canonicalPath = "/pos-para-restaurantes/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "POS para restaurantes", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Tabstr restaurantes</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    POS para restaurantes en Costa Rica: Tabstr en mesa, cocina y celular
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-6">
+    Un restaurante no es una tienda con sillas. Hay mesas abiertas, reservas que llegan
+    por Instagram, comandas a cocina, propinas, SINPE en la cuenta y un dueño que quiere
+    ver si el turno de la noche está descontando de más. Tabstr POS para restaurantes corre
+    en la tablet de la barra y en el teléfono cuando ya saliste del local.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Lo que el local necesita en caja</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Cuentas y mesas en un POS que no se siente de los 90.</li>
+    <li>Facturación electrónica Hacienda 4.4 sin mandar al cajero a otra pantalla.</li>
+    <li>Comprobantes de SINPE móvil atados a la venta.</li>
+    <li>Inventario que se actualiza al importar facturas XML de proveedores.</li>
+    <li>Sugerencias de stock con IA para no quedarte sin producto un sábado.</li>
+    <li>Reservas del local, creadas en Tabstr o por el propio cliente.</li>
+    <li>Control de asistencia: el equipo marca entrada y salida con el rostro.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Reservas: el local y el cliente en el mismo hilo</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Las reservas no deberían vivir en un chat, un Excel y la memoria del mesero de turno.
+    En Tabstr las creás vos desde el sistema, o el cliente se reserva solo.
+  </p>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Cada restaurante Tabstr tiene su propio link de reservas para compartir en redes.</li>
+    <li>El cliente reserva sin llamarte ni esperar un “¿hay mesa?” por WhatsApp.</li>
+    <li>Las nuevas aparecen en la pestaña de reservas, listas para el turno.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Control de asistencia con reconocimiento facial</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    El personal marca entrada y salida con la cara: no hay PIN que se presta ni tarjeta
+    que se pierde. Después generás un reporte de quién llegó tarde, quién se fue más
+    temprano y el total de horas, para que pagar el turno sea un poco menos de adivinar.
+  </p>
+
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Tabstr nació en un bar. El producto existe porque un POS “de restaurantes” cobraba
+    licencia por dispositivo, otra licencia para ver reportes y $250 de capacitación para
+    usar el sistema desde la casa.
+    <a href="/blog/tabstr-nacio-cobro-250/" class="text-secondaryColor hover:underline">Esa historia está acá</a>.
+    Si tu cocina, barra y oficina usan pantallas distintas, no deberías pagar tres veces.
+  </p>
+
+  <CtaBanner
+    title="¿Querés ver Tabstr en un restaurante como el tuyo?"
+    body="Agendá una demo. Te armamos el flujo de mesas, reservas, Hacienda 4.4 y SINPE."
+  />
+</MarketingPage>
