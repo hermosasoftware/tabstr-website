@@ -17,7 +17,7 @@ import { blogData } from "../data/blogData";
       </a>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-      {blogData.map((post, index) => <BlogCard post={post} revealDelay={index * 100} />)}
+      {blogData.slice(0, 3).map((post, index) => <BlogCard post={post} revealDelay={index * 100} />)}
     </div>
   </div>
 </section>

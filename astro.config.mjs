@@ -23,8 +23,24 @@ export default defineConfig({
       changefreq: "weekly",
       serialize(item) {
         delete item.lastmod;
-        if (item.url === `${site}/` || item.url === `${site}`) {
+        const path = new URL(item.url).pathname;
+        if (path === "/") {
           item.priority = 1;
+        } else if (
+          [
+            "/pos-para-restaurantes/",
+            "/facturacion-electronica-hacienda-4-4/",
+            "/precios/",
+            "/migrar-de-pos/",
+            "/sinpe-movil-pos/",
+            "/pos-costa-rica/",
+          ].includes(path)
+        ) {
+          item.priority = 0.9;
+        } else if (path.startsWith("/blog/") && path !== "/blog/") {
+          item.priority = 0.7;
+        } else if (path === "/blog/") {
+          item.priority = 0.8;
         }
         return item;
       },

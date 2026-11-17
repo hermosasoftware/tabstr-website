@@ -20,6 +20,9 @@ interface Props {
   canonicalPath: string;
   breadcrumbs: BreadcrumbItem[];
   jsonLd?: JsonLd | JsonLd[];
+  ogImage?: string;
+  ogType?: "website" | "article";
+  publishedTime?: string;
   showContact?: boolean;
   showRelated?: boolean;
 }
@@ -30,6 +33,9 @@ const {
   canonicalPath,
   breadcrumbs,
   jsonLd,
+  ogImage,
+  ogType = "website",
+  publishedTime,
   showContact = true,
   showRelated = true,
 } = Astro.props;
@@ -46,6 +52,9 @@ const structuredData = [
   title={title}
   description={description}
   canonicalPath={canonicalPath}
+  ogImage={ogImage}
+  ogType={ogType}
+  publishedTime={publishedTime}
   jsonLd={structuredData}
 >
   <Navbar client:load />

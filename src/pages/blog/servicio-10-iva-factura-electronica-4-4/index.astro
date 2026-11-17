@@ -1,0 +1,255 @@
+---
+import MarketingPage from "../../../layouts/MarketingPage.astro";
+import CtaBanner from "../../../components/CtaBanner.astro";
+import GuideHeader from "../../../components/GuideHeader.astro";
+import BlogRelated from "../../../components/BlogRelated.astro";
+import hero from "../../../assets/images/sales-stats.webp";
+import { articleSchema, faqPageSchema } from "../../../data/seo";
+
+const path = "/blog/servicio-10-iva-factura-electronica-4-4/";
+const title = "Calcular servicio 10% e IVA en factura 4.4 | Tabstr";
+const description =
+  "El 10% de servicio no es IVA. Cálculo de un casado en colones, errores de caja y cómo se separan ambos en la factura electrónica Hacienda 4.4.";
+const headline = "Cómo calcular el servicio del 10% + IVA en factura electrónica 4.4";
+const subtitle =
+  "El 10% no es IVA. Mirá el cálculo de un casado en colones, los errores de caja y cómo queda cada cifra en el comprobante de Hacienda.";
+
+const faqs = [
+  {
+    question: "¿El 10% de servicio es IVA?",
+    answer:
+      "No. El 10% es el cargo de servicio en mesa. El IVA es otro impuesto. En un restaurante el IVA general de la comida y la bebida preparada es 13%. El 10% se muestra aparte y en la factura electrónica 4.4 va como otro cargo, no como una línea de producto.",
+  },
+  {
+    question: "¿El IVA del 13% se calcula sobre el 10% de servicio?",
+    answer:
+      "No debería. La posición de la administración tributaria, en el oficio DGT-190-2019, es que el 10% de servicio es un recargo para el personal de salón y no forma parte de la base del IVA. El 13% se calcula sobre el consumo. El 10% también se calcula sobre el consumo, no sobre el consumo más IVA.",
+  },
+  {
+    question: "¿Se cobra el 10% en un pedido para llevar?",
+    answer:
+      "El 10% corresponde al servicio en mesa. Un para llevar o un express sin ese servicio no lleva el mismo cargo. El IVA del plato sí se cobra. Confirmá el caso de tu local con tu contador antes de cambiar la configuración.",
+  },
+  {
+    question: "¿Dónde va el 10% en la factura electrónica 4.4?",
+    answer:
+      "En el apartado de otros cargos, con el código 06 de impuesto de servicio 10%. No se mete como un producto con CABYS. Si lo metés como línea, movés la base del IVA y el XML deja de decir la verdad.",
+  },
+];
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={hero.src}
+  ogType="article"
+  publishedTime="2026-11-17"
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Blog", href: "/blog/" },
+    { name: "Servicio 10% e IVA", href: path },
+  ]}
+  jsonLd={[
+    articleSchema({
+      headline,
+      description,
+      path,
+      image: hero.src,
+      datePublished: "2026-11-17",
+    }),
+    faqPageSchema(faqs),
+  ]}
+>
+  <GuideHeader
+    category="Hacienda"
+    date="17 de noviembre, 2026"
+    datePublished="2026-11-17"
+    readingMinutes={8}
+    headline={headline}
+    subtitle={subtitle}
+    image={hero.src}
+    imageAlt="Reportes de ventas de Tabstr POS, útiles para cuadrar servicio e IVA de un restaurante en Costa Rica"
+  />
+
+  <div class="blog-prose">
+    <p>
+      En la cuenta de un restaurante, bar o soda con mesero hay dos cifras que la gente mezcla todos los días: el servicio del 10% y el IVA del 13%. No son lo mismo, no se calculan igual y en la factura electrónica 4.4 no viven en el mismo lugar. Si los sumás “a ojo”, el cliente paga de más o Hacienda recibe una base que no cuadra.
+    </p>
+    <p>
+      Esta guía es operativa. No es un criterio de la Dirección General de Tributación. Antes de cambiar cómo facturás, confirmá el tratamiento con tu contador. El detalle del comprobante en Tabstr está en
+      <a href="/facturacion-electronica-hacienda-4-4/">facturación electrónica Hacienda 4.4</a>.
+    </p>
+
+    <h2>¿El 10% de servicio es IVA?</h2>
+    <p>
+      No. El IVA es el impuesto al valor agregado. La tarifa general, la que aplica a la comida y la bebida que servís en el local, es 13%. El 10% es el cargo de servicio en mesa: se muestra aparte en la cuenta y está pensado para el personal de salón, no para el Ministerio de Hacienda como si fuera otro IVA.
+    </p>
+    <p>
+      La propina voluntaria es una tercera cosa. El cliente la decide, se la da al salonero y no debería inflar la factura. Si tu cajero mete “propina” y “servicio” como si fueran el mismo botón, el cierre del turno miente.
+    </p>
+    <p class="callout">
+      Respuesta corta: consumo por un lado, IVA 13% sobre ese consumo, servicio 10% sobre ese mismo consumo. El total es la suma de los tres. El 10% no es el impuesto.
+    </p>
+
+    <h2>Cómo se calcula en un casado</h2>
+    <p>
+      Mesa de dos en una soda de Escazú, un martes de almuerzo. Los precios de abajo son el valor del plato y del fresco <strong>sin IVA y sin servicio</strong>. Así tiene que estar el precio en el catálogo si vas a desglosar el comprobante.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Cálculo</th>
+            <th>Monto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Casado de pollo</td>
+            <td>Precio de venta</td>
+            <td>₡4.800</td>
+          </tr>
+          <tr>
+            <td>Fresco de cas</td>
+            <td>Precio de venta</td>
+            <td>₡1.200</td>
+          </tr>
+          <tr>
+            <td>Consumo</td>
+            <td>4.800 + 1.200</td>
+            <td>₡6.000</td>
+          </tr>
+          <tr>
+            <td>IVA 13%</td>
+            <td>13% de ₡6.000</td>
+            <td>₡780</td>
+          </tr>
+          <tr>
+            <td>Servicio 10%</td>
+            <td>10% de ₡6.000</td>
+            <td>₡600</td>
+          </tr>
+          <tr>
+            <td>Total en mesa</td>
+            <td>6.000 + 780 + 600</td>
+            <td>₡7.380</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      El IVA de esa venta, el que después declarás, son ₡780. Los ₡600 del servicio no son impuesto de ventas: son el cargo de salón. Si el mismo casado y el mismo fresco salen para llevar, sin servicio en mesa, el total baja a ₡6.780. El plato no se abarató. Se cayó un cargo que no correspondía.
+    </p>
+
+    <h2>¿El IVA se calcula sobre el 10%?</h2>
+    <p>
+      No. El oficio DGT-190-2019 trata el 10% como un recargo que recibe el personal de mesa, no como parte del precio del servicio gravado. Por eso no entra en la base del IVA. El 13% sale del consumo. El 10% sale del mismo consumo, antes de sumar el IVA.
+    </p>
+    <p>
+      El error clásico es hacer la cuenta al revés. Alguien suma primero el 10% (₡6.600) y después cobra 13% sobre eso. El IVA pasa de ₡780 a ₡858. Son ₡78 de más en una mesa chica. En 40 mesas iguales, un solo servicio de almuerzo, son ₡3.120 que el cliente pagó de más y que tu XML reportó de más. En un mes de veintiséis días, si el error se repite, estás cerca de ₡80.000 en un impuesto que no era.
+    </p>
+    <p>
+      El otro error, igual de común, es calcular el 10% sobre el precio que ya trae IVA. El 10% de ₡6.780 es ₡678, no ₡600. El salonero “gana” un poquito más en el papel y la cuenta deja de ser explicable cuando el cliente pide el desglose.
+    </p>
+
+    <h2>Dónde va cada cosa en la factura electrónica 4.4</h2>
+    <p>
+      La versión 4.4 del comprobante separa la comida del cargo. Cada plato o bebida es una línea, con su código CABYS y su tarifa de IVA. El 10% no es un casado más: va en otros cargos.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Qué es</th>
+            <th>Dónde va en el 4.4</th>
+            <th>¿Lleva IVA?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Casado, fresco, cerveza, café del local</td>
+            <td>Línea de detalle, con su CABYS</td>
+            <td>Sí. En servicio de comida, casi siempre 13%</td>
+          </tr>
+          <tr>
+            <td>Servicio 10%</td>
+            <td>Otros cargos, código 06</td>
+            <td>No forma parte de la base del IVA</td>
+          </tr>
+          <tr>
+            <td>Descuento de la casa</td>
+            <td>Descuento de la línea, antes del impuesto</td>
+            <td>Baja la base gravable</td>
+          </tr>
+          <tr>
+            <td>Propina voluntaria</td>
+            <td>No es un cargo del comprobante</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Si el 10% entra como un producto llamado “servicio”, el catálogo le inventa un CABYS y el impuesto se calcula sobre algo que no es comida. El XML queda bonito para el cajero y raro para Hacienda. Los códigos que sí corresponden a una soda o a un restaurante están en la
+      <a href="/blog/iva-codigos-cabys-restaurantes-sodas/">guía de IVA y CABYS 2026</a>.
+    </p>
+
+    <h2>Errores que vemos en restaurantes</h2>
+    <ul>
+      <li>Cobrar 13% sobre consumo más servicio, “porque todo lleva impuesto”.</li>
+      <li>Cobrar 10% sobre el monto que ya incluye IVA.</li>
+      <li>Poner el servicio como una línea de producto para que “salga en la factura”.</li>
+      <li>Cobrar 10% en para llevar, en la barra de express y en el pedido de la app, donde no hubo servicio en mesa.</li>
+      <li>Mezclar la propina voluntaria con el 10% y repartir las dos con la misma regla.</li>
+      <li>Calcular en una calculadora, pasar el total a otra app de facturación y redondear distinto en cada lado. El cliente pagó una cifra y el comprobante dice otra.</li>
+      <li>Dejar el descuento después del IVA. El descuento baja el precio del plato. El impuesto se calcula sobre lo que de verdad cobraste por la comida.</li>
+    </ul>
+    <p>
+      El redondeo importa. Hacienda valida el impuesto de la línea. Si tu hoja de Excel redondea a la unidad y el comprobante redondea distinto, el rechazo no es “un problema del internet”. Es un colón que no cuadra.
+    </p>
+
+    <h2>Para llevar, barra y servicio en mesa</h2>
+    <p>
+      El 10% existe porque hay servicio en mesa. Una soda que lleva el casado a la mesa y cobra el fresco ahí está en ese supuesto. El mismo casado en un contenedor, pagado en el mostrador, no. Un bar que abre cuenta en mesa y el salonero atiende, sí. Una cerveza que el cliente pidió parado en la barra, sin ese servicio, hay que mirarla con el contador: no todo lo que se vende en un restaurante es “servicio en mesa”.
+    </p>
+    <p>
+      Lo práctico en caja es tener el cargo separado del plato, no escondido en el precio. Si inflás el casado para “que ya traiga el 10%”, el cliente no ve el desglose, el salonero no puede explicar su parte y el IVA se calcula sobre una base inflada. El precio del menú y el cargo de la ley tienen que poder leerse solos.
+    </p>
+
+    <h2>Cómo lo maneja Tabstr</h2>
+    <p>
+      Tabstr emite la factura o el tiquete electrónico 4.4 en la misma venta. No hay una segunda aplicación, ni un GTI aparte, ni un cierre donde alguien reescribe la cuenta para “agregarle el impuesto”. El IVA de cada producto vive en el catálogo. Cuando el cajero cobra el casado y el fresco, el comprobante sale con la tarifa de esas líneas, no con un porcentaje que alguien eligió en hora pico.
+    </p>
+    <p>
+      El 10% sigue siendo un cargo distinto del IVA. No lo disfracés de producto. En el local, la cuenta se cierra en el
+      <a href="/pos-para-restaurantes/">POS para restaurantes</a>: mesa, consumo y comprobante en el mismo hilo. Si hoy el cajero exporta la mesa a otro sistema para facturar, ese es el hueco donde el 10% y el 13% se calculan dos veces y ninguna igual.
+    </p>
+    <p>
+      El catálogo llega por Excel el día de la migración, con los precios que vos definís. La capacitación del personal va incluida, porque un impuesto mal cobrado casi nunca es mala fe: es una pantalla que obliga a pensar en hora pico. El primer mes de Tabstr es gratis, para operar el local de verdad y ver el comprobante, no una demo de diez minutos. Los planes están en
+      <a href="/precios/">precios</a>.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    {
+      faqs.map((item) => (
+        <div>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))
+    }
+
+    <p>
+      Si el turno de hoy todavía suma el 10% en una calculadora y el IVA en otra app, el problema no es el casado. Es el punto de venta.
+    </p>
+  </div>
+
+  <CtaBanner
+    title="Dejá de calcular el 10% en una app y el IVA en otra"
+    body="Agendá una demo o empezá el mes gratis. Te mostramos la cuenta y el comprobante Hacienda 4.4 en el mismo Tabstr."
+    label="Empezar el mes gratis"
+  />
+  <BlogRelated currentHref={path} />
+</MarketingPage>

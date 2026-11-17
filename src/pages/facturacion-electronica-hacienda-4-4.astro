@@ -1,12 +1,35 @@
 ---
 import MarketingPage from "../layouts/MarketingPage.astro";
 import CtaBanner from "../components/CtaBanner.astro";
-import { ENTITY_SENTENCE } from "../data/seo";
+import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
 
 const title = "Facturación electrónica Hacienda 4.4 | Tabstr POS Costa Rica";
 const description =
-  "Tabstr emite facturas y tiquetes electrónicos Hacienda 4.4 nativos, sin GTI aparte y desde el mismo POS para restaurantes y comercios en Costa Rica.";
+  "Tabstr emite facturas y tiquetes electrónicos Hacienda 4.4 nativos, sin GTI aparte. Ejemplo en colones, IVA del 13% y el 10% de servicio aparte.";
 const canonicalPath = "/facturacion-electronica-hacienda-4-4/";
+
+const faqs = [
+  {
+    question: "¿Tabstr usa GTI u otra app para facturar?",
+    answer:
+      "No. Tabstr emite facturas y tiquetes electrónicos en la versión 4.4 del Ministerio de Hacienda desde el mismo POS, con envío nativo. No hay que exportar la venta a una segunda aplicación.",
+  },
+  {
+    question: "¿El IVA y el 10% de servicio van en el mismo lugar del comprobante?",
+    answer:
+      "No. El IVA va en las líneas de la comida y la bebida. El 10% de servicio en mesa es otro cargo, no un producto. En un consumo de ₡6.000, el IVA del 13% son ₡780 y el servicio son ₡600. El total en mesa es ₡7.380.",
+  },
+  {
+    question: "¿El cajero elige la tarifa de IVA en cada venta?",
+    answer:
+      "No debería. El código CABYS y la tarifa se asignan al producto en el catálogo. Al cobrar, Tabstr usa esa tarifa en el comprobante 4.4. El cajero no escoge 13% o 1% en hora pico.",
+  },
+  {
+    question: "¿Qué pasa si se va el internet a la hora de facturar?",
+    answer:
+      "Tabstr sigue operando en el local sin conexión y sincroniza cuando vuelve la red. La caja no se apaga porque se cayó el Wi-Fi.",
+  },
+];
 ---
 
 <MarketingPage
@@ -17,6 +40,7 @@ const canonicalPath = "/facturacion-electronica-hacienda-4-4/";
     { name: "Inicio", href: "/" },
     { name: "Hacienda 4.4", href: canonicalPath },
   ]}
+  jsonLd={faqPageSchema(faqs)}
 >
   <p class="block-subtitle mb-4">Tabstr Hacienda 4.4</p>
   <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
@@ -41,13 +65,84 @@ const canonicalPath = "/facturacion-electronica-hacienda-4-4/";
     <li>Si el Ministerio actualiza el API, el cambio se absorbe en el producto.</li>
   </ul>
 
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Un comprobante, en colones</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Casado de pollo a ₡4.800 y fresco de cas a ₡1.200, precios sin impuesto.
+    El consumo es ₡6.000. El IVA del 13% son ₡780. Si hubo servicio en mesa, el 10%
+    son ₡600 y el total es ₡7.380. El 10% no se suma antes de calcular el IVA.
+    Para llevar, sin ese servicio, el total es ₡6.780.
+  </p>
+  <div class="my-8 overflow-x-auto rounded-2xl border border-solid border-mainBorder">
+    <table class="w-full min-w-[32rem] text-left text-sm text-secondaryText">
+      <thead>
+        <tr>
+          <th class="bg-bgDark3 px-4 py-3 font-semibold text-primaryText">Línea</th>
+          <th class="bg-bgDark3 px-4 py-3 font-semibold text-primaryText">Dónde va</th>
+          <th class="bg-bgDark3 px-4 py-3 font-semibold text-primaryText">Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">Casado de pollo</td>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">Detalle, con su CABYS</td>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">₡4.800</td>
+        </tr>
+        <tr>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">Fresco de cas</td>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">Detalle, con su CABYS</td>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">₡1.200</td>
+        </tr>
+        <tr>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">IVA 13%</td>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">Impuesto de las líneas</td>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">₡780</td>
+        </tr>
+        <tr>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">Servicio 10%</td>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">Otro cargo, no un producto</td>
+          <td class="border-t border-solid border-mainBorder px-4 py-3">₡600</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    El cálculo completo, con los errores que más vemos, está en
+    <a href="/blog/servicio-10-iva-factura-electronica-4-4/" class="text-secondaryColor hover:underline">servicio del 10% e IVA en la factura 4.4</a>.
+    Qué código CABYS corresponde a un restaurante con mesero, a una soda y a un café de estante está en
+    <a href="/blog/iva-codigos-cabys-restaurantes-sodas/" class="text-secondaryColor hover:underline">IVA y códigos CABYS</a>.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">La tarifa vive en el producto</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    El CABYS no se elige en hora pico. Se asigna cuando se carga el catálogo —por Excel,
+    en la <a href="/migrar-de-pos/" class="text-secondaryColor hover:underline">migración</a>—
+    y cada venta usa esa tarifa. Tabstr no adivina el código a partir del nombre del plato.
+    Si el código está bien, el comprobante repite la tarifa correcta. Si está mal, también
+    la repite: por eso la carga se revisa con quien lleva los impuestos del local.
+    El cajero cobra. No reconstruye el XML.
+  </p>
+
   <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Para restaurantes y comercios</h2>
   <p class="text-secondaryText leading-relaxed mb-8">
     Da igual si emitís tiquete electrónico en una soda o factura electrónica a un cliente
     corporativo: el punto de venta tiene que hablar 4.4 sin fricción. Eso es Tabstr Hacienda 4.4
     para restaurantes, bares, cafés y tiendas. Si venís de un POS que te mandó a otra app,
     <a href="/migrar-de-pos/" class="text-secondaryColor hover:underline">la migración está diseñada para no parar el local</a>.
+    El pago por SINPE se registra en esa misma venta:
+    <a href="/sinpe-movil-pos/" class="text-secondaryColor hover:underline">SINPE móvil</a>.
   </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Preguntas frecuentes</h2>
+  <div class="space-y-6 mb-4">
+    {
+      faqs.map((item) => (
+        <div>
+          <h3 class="text-xl font-bold text-primaryText mb-2">{item.question}</h3>
+          <p class="text-secondaryText leading-relaxed">{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
 
   <CtaBanner
     title="¿Tu POS actual factura en otra app?"

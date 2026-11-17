@@ -6,12 +6,32 @@ import { ScrollUpButton } from '../../components/ScrollUpButton'
 import BlogCard from '../../components/BlogCard.astro'
 import '../../styles/Theme.css'
 import { blogData } from '../../data/blogData'
+import { absoluteUrl } from '../../data/seo'
+
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Blog de Tabstr POS',
+  description:
+    'Guías de Tabstr POS para restaurantes y sodas en Costa Rica: IVA, servicio del 10%, CABYS, SINPE, food cost y migración.',
+  url: absoluteUrl('/blog/'),
+  inLanguage: 'es-CR',
+  blogPost: blogData.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.subtitle,
+    url: absoluteUrl(post.href),
+    datePublished: post.datePublished,
+    image: post.image.startsWith('http') ? post.image : absoluteUrl(post.image),
+  })),
+}
 ---
 
 <Layout
-  title="Blog Tabstr POS Costa Rica | Migración y punto de venta"
-  description="Historias y guías de Tabstr POS: por qué nació el sistema, cómo migrar de un POS viejo y cómo dejar de pagar licencia por dispositivo en Costa Rica."
+  title="Blog Tabstr POS Costa Rica | Guías de IVA, SINPE y migración"
+  description="Guías de Tabstr para restaurantes y sodas en Costa Rica: servicio del 10% e IVA, CABYS, food cost, SINPE Móvil y cómo dejar un POS por dispositivo."
   canonicalPath="/blog/"
+  jsonLd={blogSchema}
 >
   <Navbar client:load />
   
@@ -24,7 +44,8 @@ import { blogData } from '../../data/blogData'
           Últimas publicaciones
         </h1>
         <p class="text-lg text-secondaryText max-w-2xl mx-auto">
-          Ideas directas sobre POS, migración y operación de tu negocio.
+          Guías para restaurantes, bares, cafés y sodas en Costa Rica: factura 4.4,
+          servicio del 10%, CABYS, food cost, SINPE y el costo real de un POS por dispositivo.
         </p>
       </div>
 

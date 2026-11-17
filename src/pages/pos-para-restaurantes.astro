@@ -1,12 +1,30 @@
 ---
 import MarketingPage from "../layouts/MarketingPage.astro";
 import CtaBanner from "../components/CtaBanner.astro";
-import { ENTITY_SENTENCE } from "../data/seo";
+import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
 
 const title = "POS para restaurantes Costa Rica | Tabstr punto de venta";
 const description =
-  "Tabstr POS para restaurantes en Costa Rica: mesas, reservas, cocina, SINPE, Hacienda 4.4 y control de asistencia, sin licencia por dispositivo.";
+  "Tabstr POS para restaurantes en Costa Rica: mesas, comandas en cocina, servicio del 10%, SINPE, Hacienda 4.4 y asistencia, sin licencia por dispositivo.";
 const canonicalPath = "/pos-para-restaurantes/";
+
+const faqs = [
+  {
+    question: "¿Tabstr cobra licencia por la tablet de la cocina?",
+    answer:
+      "No. Tabstr no cobra licencia por dispositivo. La caja, la cocina, la barra y el celular del dueño entran al mismo POS sin que el precio suba por cada pantalla.",
+  },
+  {
+    question: "¿El 10% de servicio se confunde con el IVA?",
+    answer:
+      "No deberían mezclarse. El 10% es el cargo de servicio en mesa y el IVA general de la comida es 13%, calculado sobre el consumo. La factura electrónica 4.4 sale de la misma venta en Tabstr. El desglose está en la guía de servicio e IVA.",
+  },
+  {
+    question: "¿El dueño puede ver el turno sin estar en el local?",
+    answer:
+      "Sí. Tabstr corre en el celular. Ves las ventas sin una licencia extra para “reportes desde la casa”. El personal marca entrada y salida con reconocimiento facial, y un aviso del administrador aparece en el encabezado del POS.",
+  },
+];
 ---
 
 <MarketingPage
@@ -17,6 +35,7 @@ const canonicalPath = "/pos-para-restaurantes/";
     { name: "Inicio", href: "/" },
     { name: "POS para restaurantes", href: canonicalPath },
   ]}
+  jsonLd={faqPageSchema(faqs)}
 >
   <p class="block-subtitle mb-4">Tabstr restaurantes</p>
   <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
@@ -30,13 +49,59 @@ const canonicalPath = "/pos-para-restaurantes/";
     en el iPad de la barra y en el teléfono cuando ya saliste del local.
   </p>
 
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Mesas, cuentas y comandas</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    La operación de un restaurante empieza en la mesa, no en un botón de “venta rápida”.
+    La cuenta sigue abierta mientras el salón pide, la cocina prepara y la barra suma.
+    En Tabstr esa cuenta vive en el POS: la ves en la tablet del salón y en la de la cocina,
+    porque agregar esa pantalla no dispara otra licencia.
+  </p>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Mesas y cuentas abiertas, no un ticket suelto que se pierde entre dos turnos.</li>
+    <li>La comanda se ve en cocina en el dispositivo que ya tenés. No hace falta pagar una licencia “de cocina”.</li>
+    <li>Pedidos del sitio o de una app entran al POS y el encargado los acepta o los rechaza, con tiempo de preparación. No caen solos a la cocina.</li>
+    <li>Si se va el internet, el turno sigue. Cuando vuelve la red, Tabstr sincroniza.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Servicio del 10%, propina e IVA</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    En mesa, el cliente ve tres cifras que no son intercambiables: el consumo, el IVA del 13%
+    y el servicio del 10%. El 10% no es IVA y no es la propina voluntaria. El IVA se calcula
+    sobre el consumo. El 10% también, y en la factura electrónica 4.4 va como otro cargo,
+    no como un plato más.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Un casado de ₡4.800 y un fresco de ₡1.200 son ₡6.000 de consumo. El IVA son ₡780.
+    El servicio en mesa son ₡600. El total es ₡7.380. Para llevar, sin servicio en mesa,
+    el 10% no corresponde. El paso a paso y los errores de caja están en
+    <a href="/blog/servicio-10-iva-factura-electronica-4-4/" class="text-secondaryColor hover:underline">cómo calcular el servicio del 10% y el IVA</a>.
+    Los códigos del plato están en la
+    <a href="/blog/iva-codigos-cabys-restaurantes-sodas/" class="text-secondaryColor hover:underline">guía de CABYS 2026</a>.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Tabstr emite el comprobante 4.4 en la misma venta. El cajero no exporta la mesa a otra
+    app para “ponerle el impuesto”. El IVA vive en el producto del catálogo.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Cocina, barra y el celular del dueño</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Un POS por dispositivo trata la cocina, la barra y tu teléfono como tres productos.
+    Tabstr no. El mismo sistema corre en los tres. Desde el celular ves cómo va el turno
+    sin pagar un módulo de “reportes desde la casa”. Si el descuento de la noche se está
+    yendo, lo ves. No llamás al cajero para que te lea la pantalla.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Por qué ese cobro por pantalla ya no cierra está en
+    <a href="/blog/pos-sin-licencia-por-dispositivo/" class="text-secondaryColor hover:underline">POS sin licencia por dispositivo</a>.
+  </p>
+
   <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Lo que el local necesita en caja</h2>
   <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
     <li>Cuentas y mesas en un POS que no se siente de los 90.</li>
     <li>Facturación electrónica Hacienda 4.4 sin mandar al cajero a otra pantalla.</li>
-    <li>Comprobantes de SINPE móvil atados a la venta.</li>
+    <li>Comprobantes de SINPE móvil atados a la venta, no a un chat. La guía está en <a href="/blog/registrar-sinpe-movil-punto-de-venta/" class="text-secondaryColor hover:underline">cómo registrar SINPE Móvil</a>.</li>
     <li>Inventario que se actualiza al importar facturas XML de proveedores.</li>
-    <li>Sugerencias de stock con IA para no quedarte sin producto un sábado.</li>
+    <li>Sugerencias de stock con IA para no quedarte sin producto un sábado. Cómo leer eso contra la merma está en <a href="/blog/control-merma-inventario-restaurantes/" class="text-secondaryColor hover:underline">control de merma e inventario</a>.</li>
     <li>Reservas del local, creadas en Tabstr o por el propio cliente.</li>
     <li>Control de asistencia: el equipo marca entrada y salida con el rostro.</li>
   </ul>
@@ -78,8 +143,33 @@ const canonicalPath = "/pos-para-restaurantes/";
     Si tu cocina, barra y oficina usan pantallas distintas, no deberías pagar tres veces.
   </p>
 
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">El turno, sin adivinar</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Cerrar la noche no es solo contar el cajón. Es saber quién estuvo, qué se vendió
+    y si el aviso de la casa se vio.
+  </p>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>El personal marca entrada y salida con el rostro. El reporte muestra tardías, salidas tempranas y horas.</li>
+    <li>Un mensaje del administrador aparece en el encabezado del POS. El turno lo ve sin abrir un grupo de WhatsApp en hora pico.</li>
+    <li>Efectivo, tarjeta, SINPE móvil y Bitcoin se registran como lo que son. El arqueo deja de mezclar billetes con transferencias.</li>
+    <li>El food cost del menú no se calcula solo: la receta la llevás vos. Las ventas y las facturas XML del proveedor sí quedan en el sistema. La fórmula está en <a href="/blog/food-cost-restaurantes-costa-rica/" class="text-secondaryColor hover:underline">food cost</a>.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Preguntas frecuentes</h2>
+  <div class="space-y-6 mb-4">
+    {
+      faqs.map((item) => (
+        <div>
+          <h3 class="text-xl font-bold text-primaryText mb-2">{item.question}</h3>
+          <p class="text-secondaryText leading-relaxed">{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+
   <CtaBanner
     title="¿Querés ver Tabstr en un restaurante como el tuyo?"
-    body="Agendá una demo. Te armamos el flujo de mesas, reservas, Hacienda 4.4 y SINPE."
+    body="Agendá una demo o empezá el mes gratis. Te armamos mesas, cocina, Hacienda 4.4 y SINPE."
+    label="Empezar el mes gratis"
   />
 </MarketingPage>

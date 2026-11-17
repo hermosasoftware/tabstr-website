@@ -1,0 +1,191 @@
+---
+import MarketingPage from "../../../layouts/MarketingPage.astro";
+import CtaBanner from "../../../components/CtaBanner.astro";
+import GuideHeader from "../../../components/GuideHeader.astro";
+import BlogRelated from "../../../components/BlogRelated.astro";
+import hero from "../../../assets/images/for-all-devices.webp";
+import { articleSchema, faqPageSchema } from "../../../data/seo";
+
+const path = "/blog/pos-sin-licencia-por-dispositivo/";
+const title = "POS sin licencia por dispositivo en Costa Rica | Tabstr";
+const description =
+  "Un POS por dispositivo te cobra la caja, la cocina y el celular. Compará ese modelo con Tabstr: mismas pantallas, sin licencia por cada una, en Costa Rica.";
+const headline = "Por qué un POS sin licencia por dispositivo cambia las reglas en Costa Rica";
+const subtitle =
+  "Cuatro pantallas no son cuatro productos. El modelo por dispositivo cobra por respirar. Acá está la cuenta.";
+
+const faqs = [
+  {
+    question: "¿Qué es un POS sin licencia por dispositivo?",
+    answer:
+      "Es un punto de venta que no te cobra una licencia nueva cada vez que agregás un celular, una tablet o una computadora. Tabstr corre en la caja, la cocina, la barra y el teléfono del dueño. El precio no se multiplica por pantalla.",
+  },
+  {
+    question: "¿Por qué el modelo por dispositivo sale caro en un restaurante?",
+    answer:
+      "Porque un restaurante no es una sola caja. Necesitás la comanda en cocina, la cuenta en barra y el reporte en el celular cuando ya te fuiste. Si cada pantalla es un producto, estás pagando por operar, no por un software.",
+  },
+  {
+    question: "¿Tabstr publica un precio por dispositivo?",
+    answer:
+      "No, porque no cobra así. La suscripción depende de la operación, no de cuántas pantallas enciendas. El primer mes es gratis para usar el sistema en el local. La cotización se arma según tu negocio, y está explicada en la página de precios.",
+  },
+];
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={hero.src}
+  ogType="article"
+  publishedTime="2026-11-17"
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Blog", href: "/blog/" },
+    { name: "Sin licencia por dispositivo", href: path },
+  ]}
+  jsonLd={[
+    articleSchema({
+      headline,
+      description,
+      path,
+      image: hero.src,
+      datePublished: "2026-11-17",
+    }),
+    faqPageSchema(faqs),
+  ]}
+>
+  <GuideHeader
+    category="Modelo"
+    date="17 de noviembre, 2026"
+    datePublished="2026-11-17"
+    readingMinutes={7}
+    headline={headline}
+    subtitle={subtitle}
+    image={hero.src}
+    imageAlt="Tabstr POS en celular, tablet y computadora, sin licencia por dispositivo"
+  />
+
+  <div class="blog-prose">
+    <p>
+      El POS por dispositivo es un fósil con contrato. Nació cuando el local tenía una caja, una impresora y un técnico que aparecía el jueves. En 2026 un restaurante en Costa Rica tiene la tablet de la barra, la de la cocina, el teléfono del dueño y, si el día se pone bueno, una pantalla más en la terraza. Cobrar cada una como si fuera otro software no es un modelo de negocio. Es un peaje.
+    </p>
+    <p>
+      Tabstr no cobra licencia por dispositivo. Corre en el celular, la tablet o la computadora. Android, iOS, Windows, macOS o Linux. La misma base, las mismas ventas, sin pedirle permiso a un sistema operativo “aprobado”.
+    </p>
+
+    <h2>La cuenta que el dinosaurio no pone en la primera página</h2>
+    <p>
+      Este cuadro es un ejemplo ilustrativo. No es la tarifa de un proveedor con nombre. Sirve para ver la forma del cobro, que es lo que no cambia de marca en marca. Al lado están dos cifras que sí pasaron: más de $70 al mes para ver los reportes desde la casa, y $250 de capacitación obligatoria. Las dos están contadas en
+      <a href="/blog/tabstr-nacio-cobro-250/">el día que nació Tabstr</a>.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>POS por dispositivo</th>
+            <th>Tabstr</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Caja</td>
+            <td>1 licencia</td>
+            <td>Incluida. No se cobra por esa pantalla</td>
+          </tr>
+          <tr>
+            <td>Cocina</td>
+            <td>Otra licencia, porque “es otro dispositivo”</td>
+            <td>La misma suscripción. La comanda se ve en la tablet que ya tenés</td>
+          </tr>
+          <tr>
+            <td>Barra</td>
+            <td>Otra más</td>
+            <td>Otra pantalla, mismo sistema</td>
+          </tr>
+          <tr>
+            <td>Celular del dueño</td>
+            <td>A menudo otra licencia. En un caso real, más de $70 al mes solo para mirar desde la casa</td>
+            <td>Entrá, mirá ventas, cambiá un precio. Sin licencia extra</td>
+          </tr>
+          <tr>
+            <td>Capacitación</td>
+            <td>Curso aparte. El caso real fueron $250 para poder usar el acceso</td>
+            <td>Incluida</td>
+          </tr>
+          <tr>
+            <td>Hacienda 4.4</td>
+            <td>Muchas veces otra app o un GTI</td>
+            <td>Nativa, en la misma venta</td>
+          </tr>
+          <tr>
+            <td>Primer mes</td>
+            <td>Se cobra desde el día uno</td>
+            <td>Gratis, operando el local</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Hacé la multiplicación con tu factura, no con la de nadie. Si hoy pagás cuatro licencias, el “ahorro” de Tabstr no es un slogan: es esa factura menos el peaje por pantalla. No publicamos un precio genérico porque un local de una caja y uno de tres turnos no son el mismo negocio. Lo que no va a pasar es que la cocina te cueste otra vez. La cotización está en
+      <a href="/precios/">precios</a>.
+    </p>
+
+    <h2>Por qué el restaurante tico sale peor parado</h2>
+    <p>
+      Una tienda de un mostrador puede sobrevivir con una sola caja. Un restaurante no. La mesa se abre en el salón, la comanda tiene que existir en cocina, la barra lleva su propia cuenta y el dueño quiere saber, a las 9 p. m., si el descuento de la noche ya se pasó. Eso son cuatro razones legítimas para encender una pantalla. El modelo viejo las trata como cuatro ventas.
+    </p>
+    <p>
+      El resultado es predecible. La cocina se queda en papel porque “la licencia está cara”. El dueño llama al cajero para preguntar cómo va la noche. El reporte se mira solo si estás parado frente a la computadora que ellos aprobaron. Le pusiste un POS al local y seguís administrando por WhatsApp. Eso no es austeridad. Es un sistema diseñado para que no lo uses completo.
+    </p>
+    <p>
+      Tabstr parte del supuesto contrario: la pantalla de más es operación, no un producto nuevo. El
+      <a href="/pos-para-restaurantes/">POS para restaurantes</a>
+      contempla mesas, cocina, reservas y el celular. Si se va el internet, la caja sigue. Cuando vuelve la red, sincroniza. Un punto de venta que se apaga con el Wi-Fi del barrio no está hecho para Costa Rica.
+    </p>
+
+    <h2>No es solo el precio. Es quién manda</h2>
+    <ul>
+      <li>Si el software solo corre en Windows, el iPad que ya pagaste no existe.</li>
+      <li>Si la impresora tiene que ser la de ellos, el día que te vas se llevan la cocina.</li>
+      <li>Si ver tus números desde la casa es un módulo, no sos el dueño del sistema. Sos un usuario con permiso.</li>
+      <li>Si la capacitación es obligatoria y cara, la interfaz no es difícil por accidente. La dificultad justifica el curso.</li>
+    </ul>
+    <p>
+      Un POS sin licencia por dispositivo cambia la conversación. Agregás la terraza porque el sábado la necesitás, no porque el presupuesto de software lo permitió. Cambiás el precio del casado desde la casa. El personal marca asistencia con el rostro en el mismo sistema, sin un reloj aparte. El comprobante de SINPE queda en la venta, no en el chat. Nada de eso pide una licencia nueva para “activarlo”.
+    </p>
+
+    <h2>La objeción de siempre</h2>
+    <p>
+      “Si no cobran por dispositivo, ¿de dónde sale la plata?” De la suscripción del negocio. Tabstr cobra por ser el punto de venta del local, no por cada rectángulo con pantalla que se enciende. El mes gratis existe para que lo compruebes con tu equipo, tus mesas y tus comprobantes. Si después de operarlo no te sirve, no te amarramos a un contrato de prueba.
+    </p>
+    <p>
+      La otra objeción es el cambio. “Ya pagué las licencias.” Esas licencias se vuelven a pagar el mes que viene, y el otro. Quedarte no es recuperar la inversión. Es renovarla. Cómo se hace el cambio, sin el teatro de cerrar una semana, está en
+      <a href="/blog/migrar-pos-licencia-por-dispositivo/">migrar de un POS por dispositivo</a>
+      y en
+      <a href="/migrar-de-pos/">la página de migración</a>.
+    </p>
+    <p class="callout">
+      Cuatro pantallas no son cuatro negocios. Si tu POS te cobra como si lo fueran, no tenés un sistema. Tenés un contador de dispositivos con logo.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    {
+      faqs.map((item) => (
+        <div>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <CtaBanner
+    title="Dejá de pagar por cada pantalla"
+    body="Agendá una demo o empezá el mes gratis en los dispositivos que ya tenés. Sin licencia por cocina, barra o celular."
+    label="Empezar el mes gratis"
+  />
+  <BlogRelated currentHref={path} />
+</MarketingPage>

@@ -1,0 +1,32 @@
+---
+import { blogData } from "../data/blogData";
+
+interface Props {
+  currentHref: string;
+}
+
+const { currentHref } = Astro.props;
+const posts = blogData.filter((post) => post.href !== currentHref).slice(0, 3);
+---
+
+{
+  posts.length > 0 && (
+    <nav class="mt-16" aria-label="Más guías de Tabstr">
+      <h2 class="text-2xl font-bold text-primaryText mb-6">Más guías del mismo tema</h2>
+      <ul class="grid gap-4">
+        {posts.map((post) => (
+          <li>
+            <a
+              href={post.href}
+              class="block rounded-2xl bg-bgDark3 border border-solid border-mainBorder p-5 hover:bg-bgDark3Hover transition"
+            >
+              <p class="text-xs font-bold uppercase tracking-wider text-secondaryColor mb-2">{post.category}</p>
+              <p class="font-semibold text-primaryText mb-1">{post.title}</p>
+              <p class="text-sm text-secondaryText leading-relaxed">{post.subtitle}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

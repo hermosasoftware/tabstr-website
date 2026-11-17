@@ -306,6 +306,52 @@ textarea.contact-input {
   }
 }
 
+/* Long-form guides */
+.blog-prose h2 {
+  @apply text-2xl font-bold text-primaryText mt-10 mb-4;
+}
+.blog-prose h3 {
+  @apply text-xl font-bold text-primaryText mt-8 mb-3;
+}
+.blog-prose p,
+.blog-prose li {
+  @apply text-secondaryText leading-relaxed;
+}
+.blog-prose p + p {
+  @apply mt-4;
+}
+.blog-prose ul,
+.blog-prose ol {
+  @apply my-4 space-y-2 pl-6;
+}
+.blog-prose ul {
+  @apply list-disc;
+}
+.blog-prose ol {
+  @apply list-decimal;
+}
+.blog-prose a {
+  @apply text-secondaryColor hover:underline font-semibold;
+}
+.blog-prose strong {
+  @apply text-primaryText font-semibold;
+}
+.blog-prose .table-wrap {
+  @apply my-8 overflow-x-auto rounded-2xl border border-solid border-mainBorder;
+}
+.blog-prose table {
+  @apply w-full min-w-[36rem] text-left text-sm text-secondaryText;
+}
+.blog-prose th {
+  @apply bg-bgDark3 px-4 py-3 font-semibold text-primaryText;
+}
+.blog-prose td {
+  @apply border-t border-solid border-mainBorder px-4 py-3 align-top;
+}
+.blog-prose .callout {
+  @apply my-8 rounded-2xl border border-solid border-secondaryColor/30 bg-white/[0.04] px-5 py-4 text-primaryText leading-relaxed;
+}
+
 /* Preventing FOUC */
 @font-face {
   font-display: var(--fontsource-Inter-font-display, optional);

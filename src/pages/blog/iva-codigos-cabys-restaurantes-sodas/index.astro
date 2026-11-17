@@ -1,0 +1,203 @@
+---
+import MarketingPage from "../../../layouts/MarketingPage.astro";
+import CtaBanner from "../../../components/CtaBanner.astro";
+import GuideHeader from "../../../components/GuideHeader.astro";
+import BlogRelated from "../../../components/BlogRelated.astro";
+import hero from "../../../assets/images/article1.webp";
+import { articleSchema, faqPageSchema } from "../../../data/seo";
+
+const path = "/blog/iva-codigos-cabys-restaurantes-sodas/";
+const title = "CABYS e IVA para restaurantes y sodas 2026 | Tabstr";
+const description =
+  "Códigos CABYS de restaurante con mesero, soda sin mesero y café de estante. La tarifa de IVA sale del código, y el cajero no debería elegirla en hora pico.";
+const headline = "IVA y códigos CABYS en restaurantes y sodas: guía práctica 2026";
+const subtitle =
+  "Qué código usar si hay mesero, si es soda y si vendés café de estante. La tarifa sale del CABYS, no de la memoria del cajero.";
+
+const faqs = [
+  {
+    question: "¿Qué código CABYS usa un restaurante con mesero?",
+    answer:
+      "El código 6331000000000, “Suministro de comida, servicio de restaurante con mesero”, con IVA del 13%. Cada línea del comprobante lleva el código del bien o servicio que estás vendiendo.",
+  },
+  {
+    question: "¿Qué código usa una soda sin mesero?",
+    answer:
+      "Si hay sitios para sentarse y no hay servicio de mesero, el código de referencia es 6332000000000, “Suministro de comida, servicio de restaurante sin mesero, con sitios para sentarse”, también al 13%.",
+  },
+  {
+    question: "¿El casado puede ir al 1% por ser comida?",
+    answer:
+      "No. El 1% es la tarifa de bienes de la canasta básica tributaria, como el café tostado que vendés empacado. El casado que preparás y servís es servicio de comida, tarifa general del 13%. Usar el código del grano para el plato es un error de catálogo.",
+  },
+  {
+    question: "¿Tabstr adivina el CABYS?",
+    answer:
+      "No. El código se asigna al producto cuando se arma el catálogo. A partir de ahí, Tabstr factura esa tarifa en el comprobante Hacienda 4.4, en la misma venta. El cajero no elige 13% o 1% con la fila enfrente.",
+  },
+];
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={hero.src}
+  ogType="article"
+  publishedTime="2026-11-17"
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Blog", href: "/blog/" },
+    { name: "CABYS e IVA", href: path },
+  ]}
+  jsonLd={[
+    articleSchema({
+      headline,
+      description,
+      path,
+      image: hero.src,
+      datePublished: "2026-11-17",
+    }),
+    faqPageSchema(faqs),
+  ]}
+>
+  <GuideHeader
+    category="Hacienda"
+    date="17 de noviembre, 2026"
+    datePublished="2026-11-17"
+    readingMinutes={8}
+    headline={headline}
+    subtitle={subtitle}
+    image={hero.src}
+    imageAlt="Guía de Tabstr sobre códigos CABYS e IVA para restaurantes y sodas en Costa Rica"
+  />
+
+  <div class="blog-prose">
+    <p>
+      En la factura electrónica 4.4 cada línea necesita un código CABYS. El CABYS es el Catálogo de Bienes y Servicios del Banco Central de Costa Rica. No es un adorno: de ese código sale la tarifa de IVA. Un casado y una bolsa de café molido no pagan lo mismo, aunque los dos se llamen “café” o “comida” en la cabeza del cajero.
+    </p>
+    <p>
+      Desde el 1.º de junio de 2025 Hacienda acepta solo los códigos del CABYS 2025. En 2026 seguís en ese catálogo. Esta guía usa códigos publicados por el BCCR y Hacienda. No sustituye al contador ni al buscador oficial si vendés algo distinto de comida preparada. El comprobante, en Tabstr, sale del mismo POS:
+      <a href="/facturacion-electronica-hacienda-4-4/">facturación electrónica Hacienda 4.4</a>.
+    </p>
+
+    <h2>La tarifa no se elige. Se hereda del código</h2>
+    <p>
+      La tarifa general del IVA es 13%. También existen tarifas reducidas —1% para la canasta básica tributaria, y otras para bienes y servicios que no son un almuerzo— y bienes exentos. Cuál aplica no es una decisión del turno. Es una propiedad del código.
+    </p>
+    <p>
+      En un restaurante o una soda el error típico es uno de estos dos: ponerle 1% al casado “porque es comida de todos los días”, o ponerle 13% a un producto de estante que sí está en la canasta básica. Los dos se arreglan en el catálogo, no en la caja, cuando ya hay diez personas esperando la cuenta.
+    </p>
+
+    <h2>Códigos que sí usa un local de comida</h2>
+    <p>
+      Estos cuatro alcanzan para explicar la diferencia entre servir y revender. Confirmá siempre la descripción completa en el catálogo vigente si tu caso no es el de la fila.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Qué estás vendiendo</th>
+            <th>CABYS</th>
+            <th>IVA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Comida con servicio de mesero</td>
+            <td>6331000000000</td>
+            <td>13%</td>
+          </tr>
+          <tr>
+            <td>Comida sin mesero, con lugares para sentarse (soda, autoservicio)</td>
+            <td>6332000000000</td>
+            <td>13%</td>
+          </tr>
+          <tr>
+            <td>Café caliente vendido en el restaurante, bar o local similar</td>
+            <td>6340001000100</td>
+            <td>13%</td>
+          </tr>
+          <tr>
+            <td>Café tostado molido, de estante, sin descafeinar</td>
+            <td>2391102010200</td>
+            <td>1%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      El casado que sale de la cocina entra en el código de suministro de comida, al 13%. El café que el barista sirve en taza también va al 13%: es una venta del local, no una bolsa de la canasta básica. La bolsa de café molido que a veces dejás en el mostrador para llevar a la casa puede ir al 1%, con el código del producto empacado. Mismo negocio, dos tarifas, dos códigos. Si usás uno solo “para todo”, una de las dos ventas está mal.
+    </p>
+
+    <h2>13%, 1% y el casado que no es canasta básica</h2>
+    <p>
+      La canasta básica tributaria baja la tarifa de ciertos bienes al 1%. Son productos definidos, no “lo que la gente come”. Un casado de pollo preparado en tu soda no se convierte en canasta básica porque el arroz suelto, en otro código, tenga otra tarifa. Vendés un servicio de comida. La tarifa de ese servicio es la general.
+    </p>
+    <p>
+      Lo mismo pasa con el fresco natural del local. Prepararlo y servirlo no es lo mismo que vender una fruta en una feria. Cuando dudes, leé la descripción del CABYS en voz alta: si dice “servicio de restaurante” o “vendido en restaurantes”, no estás en el pasillo del supermercado.
+    </p>
+    <p>
+      El 10% de servicio no cambia el código del plato. Es otro cargo del comprobante, no una línea con CABYS. Cómo se calcula, con un casado en colones, está en
+      <a href="/blog/servicio-10-iva-factura-electronica-4-4/">servicio del 10% e IVA</a>.
+    </p>
+
+    <h2>Errores de catálogo que Hacienda sí ve</h2>
+    <ul>
+      <li>Un solo código para todo el menú, incluida la bolsa de café y la cerveza.</li>
+      <li>Un código de servicios profesionales (consultoría, software, contabilidad) copiado de otro negocio del mismo dueño.</li>
+      <li>Códigos del CABYS 2023 después de la fecha en que dejaron de aceptarse.</li>
+      <li>Tarifa digitada a mano, distinta del código. El XML trae las dos cosas y no coinciden.</li>
+      <li>Dejar que el cajero elija “exento” porque el cliente pidió factura a nombre de una sociedad y “así siempre pasa”.</li>
+      <li>No separar el para llevar del servicio en mesa en el cargo del 10%, aunque el CABYS de la comida sea el mismo.</li>
+    </ul>
+    <p>
+      El código se equivoca una vez, en la carga del producto, y se repite en cada almuerzo hasta que alguien lo mira. Por eso el catálogo es el lugar del control. La caja es el lugar donde ya es tarde.
+    </p>
+
+    <h2>Cómo aplica Tabstr la tarifa</h2>
+    <p>
+      Tabstr no adivina el CABYS a partir del nombre “casado”. Eso sería inventar un criterio tributario. El código y la tarifa se asignan al producto cuando se arma el catálogo —en la
+      <a href="/migrar-de-pos/">migración por Excel</a>
+      o al crear el ítem—. Desde ese momento, cada venta usa esa tarifa.
+    </p>
+    <p>
+      Al cobrar, el comprobante 4.4 sale del mismo
+      <a href="/pos-para-restaurantes/">POS para restaurantes</a>,
+      sin GTI y sin una pantalla donde alguien escoja 13% o 1% porque “el de las 12 siempre lo pone así”. El IVA que ves en la factura es el del producto, calculado en la venta. Si el código está bien, la tarifa va bien en cada mesa. Si el código está mal, Tabstr va a repetir el error con disciplina. Por eso la carga inicial se revisa con quien lleva tus impuestos, no solo con quien diseñó el menú.
+    </p>
+    <p>
+      Una soda que también vende abarrotes tiene que tratar esos productos como lo que son. El menú del día y la bolsa de café no comparten código para “simplificar”. Simplificar el catálogo es la forma más cara de ahorrar diez minutos.
+    </p>
+
+    <h2>Qué revisar este mes</h2>
+    <ol>
+      <li>Listá los veinte productos que más vendés.</li>
+      <li>Al lado de cada uno, escribí si es comida servida, bebida preparada en el local o producto empacado.</li>
+      <li>Asigná el CABYS de esa fila, no el de la fila de al lado.</li>
+      <li>Confirmá que el 10% de servicio no esté metido como producto.</li>
+      <li>Emití un tiquete de prueba y leé el desglose antes del servicio del viernes.</li>
+    </ol>
+    <p>
+      Si el catálogo vive en un POS viejo y la factura vive en otra app, esa revisión la vas a hacer dos veces. En Tabstr es una sola base. El mes gratis sirve para ver comprobantes reales, no una captura de pantalla. El alcance de la suscripción está en
+      <a href="/precios/">precios</a>.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    {
+      faqs.map((item) => (
+        <div>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <CtaBanner
+    title="La tarifa tiene que vivir en el producto, no en la memoria del cajero"
+    body="Agendá una demo o empezá el mes gratis. Hacienda 4.4 sale de la misma venta, con el catálogo que cargamos por Excel."
+    label="Empezar el mes gratis"
+  />
+  <BlogRelated currentHref={path} />
+</MarketingPage>

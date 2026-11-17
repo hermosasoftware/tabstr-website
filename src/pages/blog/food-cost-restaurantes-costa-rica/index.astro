@@ -1,0 +1,234 @@
+---
+import MarketingPage from "../../../layouts/MarketingPage.astro";
+import CtaBanner from "../../../components/CtaBanner.astro";
+import GuideHeader from "../../../components/GuideHeader.astro";
+import BlogRelated from "../../../components/BlogRelated.astro";
+import hero from "../../../assets/images/ai-assistance.webp";
+import { articleSchema, faqPageSchema } from "../../../data/seo";
+
+const path = "/blog/food-cost-restaurantes-costa-rica/";
+const title = "Food cost en restaurantes de Costa Rica | Fórmula | Tabstr";
+const description =
+  "Fórmula de food cost con un casado en colones, errores que inflan el costo y cómo el inventario, el XML del proveedor y la IA de stock de Tabstr ayudan a verlo.";
+const headline = "Food cost en restaurantes de Costa Rica: fórmula, errores y cómo controlarlo";
+const subtitle =
+  "La fórmula con un casado real en colones, los errores que inflan el costo y qué podés ver con inventario y ventas.";
+
+const faqs = [
+  {
+    question: "¿Cómo se calcula el food cost de un plato?",
+    answer:
+      "Food cost = costo de los ingredientes del plato dividido entre el precio de venta sin IVA y sin servicio, multiplicado por 100. Si el casado te cuesta ₡1.600 en insumos y lo vendés a ₡4.800 antes de impuestos, el food cost es 33,3%.",
+  },
+  {
+    question: "¿Qué food cost es razonable en un restaurante de Costa Rica?",
+    answer:
+      "Muchos locales de comida buscan quedar entre 28% y 35% en cocina. Es una referencia de operación, no una norma de Hacienda. Un bar vive más de la bebida, que suele tener un costo más bajo. Una soda de menú del día puede vivir justo en ese rango si la porción no se va de las manos.",
+  },
+  {
+    question: "¿El 10% de servicio entra en el food cost?",
+    answer:
+      "No. El food cost mira el costo del plato contra el precio de venta de la comida, sin IVA y sin el cargo de servicio. Meter el 10% en el denominador te hace ver un margen que no existe.",
+  },
+  {
+    question: "¿Tabstr calcula la receta solo?",
+    answer:
+      "No. La receta la escribís vos, con gramos y precios. Tabstr te muestra lo que se vendió, actualiza inventario cuando importás la factura XML del proveedor y sugiere cuánto reponer según las ventas. Con eso comparás lo que entró con lo que salió. No reemplaza pesar el plato.",
+  },
+];
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={hero.src}
+  ogType="article"
+  publishedTime="2026-11-17"
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Blog", href: "/blog/" },
+    { name: "Food cost", href: path },
+  ]}
+  jsonLd={[
+    articleSchema({
+      headline,
+      description,
+      path,
+      image: hero.src,
+      datePublished: "2026-11-17",
+    }),
+    faqPageSchema(faqs),
+  ]}
+>
+  <GuideHeader
+    category="Costos"
+    date="17 de noviembre, 2026"
+    datePublished="2026-11-17"
+    readingMinutes={8}
+    headline={headline}
+    subtitle={subtitle}
+    image={hero.src}
+    imageAlt="Sugerencias de stock con inteligencia artificial en Tabstr POS para controlar compras de un restaurante"
+  />
+
+  <div class="blog-prose">
+    <p>
+      El food cost es el porcentaje del precio de un plato que se te va en ingredientes. Si no lo medís, el casado puede verse “bien de precio” y estar regalando el pollo. En Costa Rica el error se esconde fácil: el menú trae IVA, el 10% de servicio y una porción que cambia según quién esté en la plancha.
+    </p>
+    <p>
+      La fórmula cabe en una línea. El trabajo es usarla con precios de verdad, no con el recuerdo de la última factura de la feria del agricultor.
+    </p>
+
+    <h2>La fórmula</h2>
+    <p class="callout">
+      Food cost % = (costo de ingredientes del plato ÷ precio de venta sin IVA y sin servicio) × 100
+    </p>
+    <p>
+      El denominador es lo que cobrás por la comida, antes de impuestos y antes del cargo de salón. El
+      <a href="/blog/servicio-10-iva-factura-electronica-4-4/">10% de servicio no es parte del precio del plato</a>.
+      Si lo metés en la cuenta del margen, el food cost se ve mejor de lo que es y el sábado no entendés por qué la caja no alcanza.
+    </p>
+    <p>
+      Una referencia que usan muchos restaurantes y sodas: quedar entre 28% y 35% en comida. No es ley. Un corte de res puede vivir más alto si el resto del menú compensa. Una entrada de nachos con queso importado puede comerse el margen de tres casados. El número sirve para decidir, no para enmarcarlo.
+    </p>
+
+    <h2>Un casado, en colones</h2>
+    <p>
+      Esta ficha es un ejemplo. Tus precios de proveedor van a ser otros. Lo que no cambia es el método: cada ingrediente con cantidad y costo, más un colchón chico de merma que ya sabés que ocurre.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ingrediente</th>
+            <th>En el plato</th>
+            <th>Costo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Arroz</td>
+            <td>180 g cocido</td>
+            <td>₡180</td>
+          </tr>
+          <tr>
+            <td>Frijoles</td>
+            <td>120 g</td>
+            <td>₡160</td>
+          </tr>
+          <tr>
+            <td>Plátano maduro</td>
+            <td>1 unidad</td>
+            <td>₡140</td>
+          </tr>
+          <tr>
+            <td>Ensalada</td>
+            <td>80 g</td>
+            <td>₡220</td>
+          </tr>
+          <tr>
+            <td>Pollo en trozo</td>
+            <td>150 g neto</td>
+            <td>₡750</td>
+          </tr>
+          <tr>
+            <td>Aceite, aliños y merma prevista</td>
+            <td>—</td>
+            <td>₡150</td>
+          </tr>
+          <tr>
+            <td>Costo del casado</td>
+            <td></td>
+            <td>₡1.600</td>
+          </tr>
+          <tr>
+            <td>Precio en menú, sin IVA ni servicio</td>
+            <td></td>
+            <td>₡4.800</td>
+          </tr>
+          <tr>
+            <td>Food cost</td>
+            <td>1.600 ÷ 4.800</td>
+            <td>33,3%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      De cada ₡4.800, ₡1.600 se van en el plato y ₡3.200 quedan para alquiler, planilla, gas, empaque, datáfono y lo que esperás llevarte. Si el pollo sube ₡200 y no tocás el menú, el food cost pasa a 37,5%. Nadie lo anuncia. Solo se siente a fin de mes.
+    </p>
+    <p>
+      El precio que ve el cliente en mesa no es ₡4.800. Con IVA de ₡624 y servicio de ₡480, la cuenta del casado solo llega a ₡5.904. Ese total no se usa en la fórmula. Usarlo es el error número uno de la hoja de cálculo del dueño.
+    </p>
+
+    <h2>Errores que inflan el costo sin que el menú cambie</h2>
+    <ul>
+      <li>Fichar la receta una vez, en la inauguración, y no volver a ponerle el precio del proveedor.</li>
+      <li>Medir el pollo “al ojo”. Ciento cincuenta gramos y ciento ochenta no son el mismo casado. En cien platos son tres kilos.</li>
+      <li>Olvidar la merma. La lechuga que se bota el domingo es costo del lunes, aunque no esté en la ficha.</li>
+      <li>Contar el almuerzo del personal como venta. Si no se cobró, es consumo. Si nadie lo anota, parece que el food cost está bien y el inventario “no cuadra por el sistema”.</li>
+      <li>Mirar solo el plato estrella. El casado puede estar en 33% y la tabla de quesos en 52%. El promedio del local manda.</li>
+      <li>Subir el menú “con todo incluido” y no saber qué parte es impuesto. Después comparás ese número con la factura del proveedor, que viene sin tu IVA de venta, y la cuenta no tiene sentido.</li>
+    </ul>
+    <h3>El promedio miente si no separás cocina y barra</h3>
+    <p>
+      Una cerveza nacional puede tener un costo de 25% o menos. Un casado, 33%. Si mezclás las dos en un solo porcentaje, el bar esconde la cocina. Llevá el food cost de comida por un lado y el de bebida por otro. En una soda sin barra, igual separá menú del día y extras: el fresco natural no tiene el mismo costo que el casado.
+    </p>
+
+    <h2>Receta escrita más inventario</h2>
+    <p>
+      La ficha de receta responde “¿cuánto debería costar este plato?”. El inventario responde “¿cuánto salió de verdad?”. Si la ficha dice ₡1.600 y esta semana compraste pollo para cuatrocientos casados pero solo vendiste trescientos veinte, la diferencia está en algún lado: porción de más, merma, consumo del personal o una venta que nunca se digitó.
+    </p>
+    <p>
+      Sin ficha, el inventario es una bodega. Con ficha y sin inventario, el porcentaje es una opinión. Las dos cosas juntas son el control. Cómo se ve eso en un local chico está en
+      <a href="/blog/control-merma-inventario-restaurantes/">control de merma e inventario por receta</a>.
+    </p>
+
+    <h2>Cómo ayuda el inventario de Tabstr</h2>
+    <p>
+      Tabstr no te escribe la receta ni te pesa el plato. Eso sigue siendo trabajo de cocina. Lo que sí hace el POS es dejar de tratar las compras y las ventas como dos mundos.
+    </p>
+    <ul>
+      <li>Importás la factura XML del proveedor y el inventario se actualiza con lo que entró. Se acaba la caja de facturas de papel que nadie pasa al sistema.</li>
+      <li>Las ventas quedan en el mismo punto de venta. Ves qué se vendió, no solo cuánto dinero entró.</li>
+      <li>La IA de stock compara tus ventas con semanas anteriores, con el mismo mes del año pasado y con fechas como Navidad o Semana Santa, y sugiere cuánto reponer.</li>
+    </ul>
+    <p>
+      Esa sugerencia no es un food cost automático. Es una alarma de compra. Si la IA te pide más pollo y el refrigerador está lleno, no estás vendiendo lo que creés o la merma se está comiendo la diferencia. Si te pide más y el refrigerador está vacío un viernes, el problema es de quiebre, no de margen. Las dos lecturas salen de los mismos datos.
+    </p>
+    <p>
+      El flujo de mesas, cocina y caja está en el
+      <a href="/pos-para-restaurantes/">POS para restaurantes</a>.
+      Si el catálogo todavía vive en el sistema viejo, el primer paso es pasarlo: la
+      <a href="/migrar-de-pos/">migración por Excel</a>
+      deja los productos cargados antes de que abras con Tabstr. El mes de prueba es para operar, no para mirar una presentación. Podés ver qué incluye la suscripción en
+      <a href="/precios/">precios</a>.
+    </p>
+
+    <h2>Un hábito de una hora, no un departamento de costos</h2>
+    <p>
+      En un restaurante pequeño nadie va a costear ochenta platos cada semana. Costeá los diez que más vendés y los tres que más sospechás. Actualizá esos costos cuando el proveedor cambie el precio, no cuando “haya tiempo”. Una hora al mes, con la factura XML ya adentro del inventario, le gana a una hoja de cálculo que se actualizó en enero.
+    </p>
+    <p>
+      Si el food cost del casado se fue a 40% y el precio de menú no se mueve, tenés tres palancas: porción, proveedor o precio. Ninguna se decide bien con el total de la caja. Se decide con el costo del plato.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    {
+      faqs.map((item) => (
+        <div>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <CtaBanner
+    title="Mirá ventas e inventario en el mismo POS"
+    body="Agendá una demo o empezá el mes gratis. Te mostramos la importación de XML, las ventas y las sugerencias de stock con IA."
+    label="Empezar el mes gratis"
+  />
+  <BlogRelated currentHref={path} />
+</MarketingPage>

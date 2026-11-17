@@ -1,0 +1,203 @@
+---
+import MarketingPage from "../../../layouts/MarketingPage.astro";
+import CtaBanner from "../../../components/CtaBanner.astro";
+import GuideHeader from "../../../components/GuideHeader.astro";
+import BlogRelated from "../../../components/BlogRelated.astro";
+import hero from "../../../assets/images/sales-stats.webp";
+import { articleSchema, faqPageSchema } from "../../../data/seo";
+
+const path = "/blog/control-merma-inventario-restaurantes/";
+const title = "Merma e inventario por receta en restaurantes | Tabstr";
+const description =
+  "La merma de una soda no es un robo grande: es la porción, el almuerzo del personal y la factura que nadie compara. Cómo controlarla con receta, conteo e inventario.";
+const headline = "Control de merma e inventario por receta en restaurantes pequeños";
+const subtitle =
+  "La soda no pierde plata en un robo grande. La pierde en la porción, el almuerzo del primo y la factura del proveedor que nadie compara.";
+
+const faqs = [
+  {
+    question: "¿Qué es la merma en un restaurante?",
+    answer:
+      "Es producto que compraste y no vendiste: se venció, se quemó, se cayó, se sobreporcionó o se lo comió el personal sin registrarlo. Si no la anotás, aparece como un inventario que “no cuadra” y nadie sabe por qué.",
+  },
+  {
+    question: "¿Por qué una soda pequeña la siente más?",
+    answer:
+      "Porque no hay un bodeguero ni un conteo de lunes. El dueño compra, cocina y cobra. Tres kilos de pollo de más en la porción, repetidos toda la semana, se comen el margen del casado sin que la caja se vea vacía.",
+  },
+  {
+    question: "¿Tabstr arma la receta y descuenta los ingredientes solo?",
+    answer:
+      "No. La receta la escribís vos. Tabstr registra lo que se vende, actualiza el inventario cuando importás la factura XML del proveedor y usa IA para sugerir cuánto reponer según las ventas. Con eso comparás lo que entró y lo que salió. No reemplaza el conteo ni la ficha de cocina.",
+  },
+  {
+    question: "¿Cada cuánto hay que contar?",
+    answer:
+      "Lo caro y lo que se pierde fácil —carne, queso, licores— se cuenta a diario o por turno. El resto, una vez a la semana alcanza en un local pequeño. Contar todo todos los días y no anotar la diferencia es teatro.",
+  },
+];
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={hero.src}
+  ogType="article"
+  publishedTime="2026-11-17"
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Blog", href: "/blog/" },
+    { name: "Merma e inventario", href: path },
+  ]}
+  jsonLd={[
+    articleSchema({
+      headline,
+      description,
+      path,
+      image: hero.src,
+      datePublished: "2026-11-17",
+    }),
+    faqPageSchema(faqs),
+  ]}
+>
+  <GuideHeader
+    category="Inventario"
+    date="17 de noviembre, 2026"
+    datePublished="2026-11-17"
+    readingMinutes={8}
+    headline={headline}
+    subtitle={subtitle}
+    image={hero.src}
+    imageAlt="Ventas de Tabstr POS para comparar lo que se vendió con lo que salió del inventario"
+  />
+
+  <div class="blog-prose">
+    <p>
+      La merma es lo que pagaste y no vendiste. En un restaurante grande a veces es un proceso con báscula y un encargado. En una soda, un café o un bar de un solo turno, es más simple y más caro: nadie anota el plátano que se puso negro, la porción de pollo crece cuando hay prisa y el almuerzo del personal se sirve “de lo que hay”. A fin de mes la caja no alcanza y la explicación es que “la gente no está viniendo”. A veces la gente sí vino. La comida se fue por otro lado.
+    </p>
+    <p>
+      El control no exige un departamento. Exige una receta, un conteo de lo que duele y una forma de ver compras contra ventas. El porcentaje del plato, si todavía no lo tenés, empieza en
+      <a href="/blog/food-cost-restaurantes-costa-rica/">food cost en restaurantes de Costa Rica</a>.
+    </p>
+
+    <h2>Por qué el local chico pierde plata aquí</h2>
+    <ul>
+      <li>La receta está en la cabeza de una persona. Si esa persona libra, la porción cambia.</li>
+      <li>No se separa merma de consumo del personal. Las dos salen del mismo recipiente y solo una es un accidente.</li>
+      <li>La factura del proveedor se queda en un chat o en una caja de zapatos. Nadie la compara con lo que se vendió.</li>
+      <li>Se cuenta la caja todas las noches y no se cuenta el refrigerador ninguna.</li>
+      <li>El “se me fue un poco” de cada plato, multiplicado por cien casados, ya es un costo. No se siente en un solo plato.</li>
+    </ul>
+    <p>
+      Un ejemplo corto. La ficha del casado dice 150 g de pollo. En el pase de las 12:30 salen 180 g, porque es más rápido no pesar. Son 30 g. En 80 casados de un almuerzo son 2,4 kg. Si ese pollo te cuesta ₡5.000 el kilo, regalaste ₡12.000 en un servicio, con el menú “bien calibrado”. En veintiséis días iguales estás por encima de ₡300.000. Nadie robó la bodega. La pala estaba un poco más llena.
+    </p>
+
+    <h2>La receta es el inventario teórico</h2>
+    <p>
+      Sin una ficha no hay con qué discutir. La ficha de un plato cabe en media página: ingrediente, cantidad, unidad y costo. La del casado de la guía de food cost suma ₡1.600. Esa cifra es lo que <strong>debería</strong> salir de bodega cada vez que vendés uno.
+    </p>
+    <p>
+      El inventario teórico de la semana es esa ficha por la cantidad vendida. Ochenta casados deberían haber consumido 12 kg de pollo neto, más lo que la ficha ya prevé de merma. Si compraste 16 kg y no queda nada en el refrigerador, sobran 4 kg que no se convirtieron en venta. Ahí está la conversación: porción, merma, consumo del personal o ventas que no se registraron. Sin la ficha, la conversación es “yo creo”.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dato</th>
+            <th>De dónde sale</th>
+            <th>Ejemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Consumo teórico</td>
+            <td>Receta × platos vendidos</td>
+            <td>150 g × 80 = 12 kg</td>
+          </tr>
+          <tr>
+            <td>Lo que entró</td>
+            <td>Factura del proveedor</td>
+            <td>16 kg</td>
+          </tr>
+          <tr>
+            <td>Lo que quedó</td>
+            <td>Conteo</td>
+            <td>0 kg</td>
+          </tr>
+          <tr>
+            <td>Diferencia</td>
+            <td>Entró − quedó − teórico</td>
+            <td>4 kg sin explicar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Esa diferencia no se “ajusta” en silencio para que el sistema cuadre. Se nombra. Si fueron 2 kg de personal, se anotan como consumo del personal. Si fue porción, se corrige la pala o la ficha. Si fue un vencimiento, es merma. Mezclar las tres en un ajuste mágico es cómo el número deja de servir.
+    </p>
+
+    <h2>Qué contar, y qué no</h2>
+    <p>
+      No hace falta contar el arroz grano por grano todos los días. Contá lo que es caro o fácil de perder: carne, queso, aguacate, licores, cerveza. El resto, un conteo semanal en un local pequeño alcanza. El conteo sirve si alguien escribe la diferencia. Un inventario que siempre “cuadra” porque se edita al final no es un control. Es decoración.
+    </p>
+    <h3>Tres libretas que sí valen la pena</h3>
+    <ol>
+      <li><strong>Merma:</strong> qué se botó, cuánto y por qué. Vencido, quemado, contaminado.</li>
+      <li><strong>Personal:</strong> qué se sirvió y no se vendió. Si es beneficio del puesto, que se vea. Si es abuso, también.</li>
+      <li><strong>Porción:</strong> una vez por semana, pesá cinco platos seguidos. Si los cinco están por encima de la ficha, la ficha no es el problema.</li>
+    </ol>
+
+    <h2>Cómo ayuda Tabstr, y qué no hace</h2>
+    <p>
+      Tabstr no descuenta solo los gramos de la receta cuando vendés un casado, y no tiene un módulo que adivine la merma. Decir lo contrario sería inventar un sistema que no es. Lo que sí te da, en el mismo POS, es la otra mitad de la tabla.
+    </p>
+    <ul>
+      <li>Las ventas quedan registradas. Sabés cuántos casados salieron, no solo cuánta plata entró.</li>
+      <li>Importás la factura XML del proveedor y el inventario se mueve con lo que compraste. La factura deja de vivir solo en el correo.</li>
+      <li>La IA compara las ventas con semanas anteriores, con el mismo mes del año pasado y con fechas como Semana Santa o Navidad, y sugiere cuánto reponer.</li>
+    </ul>
+    <p>
+      Usala como pregunta, no como orden. Si sugiere comprar más pollo y el refrigerador está lleno, no estás vendiendo ese volumen o la merma se lo está comiendo. Si sugiere comprar y estás en cero un viernes a las 11 a. m., el problema es quiebre: el cliente va a pedir otra cosa o se va a ir. Las dos señales salen de ventas reales, no de una corazonada.
+    </p>
+    <p>
+      El dueño puede ver eso desde el celular, sin pagar otra licencia por “el módulo de reportes”. Ese modelo está explicado en
+      <a href="/blog/pos-sin-licencia-por-dispositivo/">POS sin licencia por dispositivo</a>.
+      Mesas, cocina y caja siguen en el
+      <a href="/pos-para-restaurantes/">POS para restaurantes</a>.
+      Si el catálogo todavía no está en Tabstr, se carga por Excel antes de abrir:
+      <a href="/migrar-de-pos/">migrar de POS</a>.
+      El primer mes es para operar con tus ventas de verdad. Qué incluye la suscripción está en
+      <a href="/precios/">precios</a>.
+    </p>
+
+    <h2>Un cierre de semana que cabe en cuarenta minutos</h2>
+    <ol>
+      <li>Contá carne, queso y licor.</li>
+      <li>Abrí las ventas del POS: cuántos platos de esos ingredientes salieron.</li>
+      <li>Multiplicá por la ficha.</li>
+      <li>Compará con lo que entró por la factura XML y con lo que quedó en el conteo.</li>
+      <li>Anotá la diferencia en una sola de las tres libretas. No en las tres a la vez para que desaparezca.</li>
+    </ol>
+    <p>
+      Cuarenta minutos a la semana no convierten una soda en una cadena. Evitan que 2,4 kg de pollo se vayan en cada almuerzo sin nombre. La merma que no se nombra se paga igual. Solo que se paga disfrazada de “un mes flojo”.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    {
+      faqs.map((item) => (
+        <div>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <CtaBanner
+    title="Compras y ventas en el mismo lugar"
+    body="Agendá una demo o empezá el mes gratis. Te mostramos la factura XML en el inventario y las sugerencias de stock con IA."
+    label="Empezar el mes gratis"
+  />
+  <BlogRelated currentHref={path} />
+</MarketingPage>

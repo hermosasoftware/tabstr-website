@@ -1,0 +1,208 @@
+---
+import MarketingPage from "../../../layouts/MarketingPage.astro";
+import CtaBanner from "../../../components/CtaBanner.astro";
+import GuideHeader from "../../../components/GuideHeader.astro";
+import BlogRelated from "../../../components/BlogRelated.astro";
+import hero from "../../../assets/images/article2.webp";
+import { articleSchema, faqPageSchema } from "../../../data/seo";
+
+const path = "/blog/migrar-pos-licencia-por-dispositivo/";
+const title = "Costos ocultos de un POS por dispositivo | Migrar a Tabstr";
+const description =
+  "Licencias, capacitación y hardware amarrado: lo que un POS por dispositivo no pone en la cotización. Pasos reales para migrar a Tabstr con Excel y mes gratis.";
+const headline = "Migrar de un POS con licencia por dispositivo: costos ocultos y pasos reales";
+const subtitle =
+  "Licencias, capacitación y hardware amarrado. El paso a paso para cambiar sin apagar el local, con el catálogo listo el día uno.";
+
+const faqs = [
+  {
+    question: "¿Hay que cerrar el restaurante para migrar de POS?",
+    answer:
+      "No tiene por qué. En Tabstr el catálogo se carga antes, con un Excel de tus productos. El día que empezás a vender, el menú ya está. La capacitación del personal va incluida. El primer mes es gratis para operar el local, no para ver una demo.",
+  },
+  {
+    question: "¿Tengo que botar las tablets y las impresoras?",
+    answer:
+      "No si sirven. Tabstr corre en el celular, la tablet o la computadora que ya tenés, en Android, iOS, Windows, macOS y Linux, e imprime por TCP, USB y Bluetooth. Si el equipo está amarrado a una renta del proveedor viejo, se cotiza lo que haga falta para que el hardware sea tuyo.",
+  },
+  {
+    question: "¿La facturación electrónica se migra aparte?",
+    answer:
+      "No. Tabstr emite facturas y tiquetes electrónicos Hacienda 4.4 desde el mismo POS, sin GTI ni una segunda aplicación. El cambio de caja y el cambio de comprobante son el mismo proyecto.",
+  },
+  {
+    question: "¿Cuánto cuesta la capacitación?",
+    answer:
+      "En Tabstr la capacitación del personal está incluida. No es una línea extra. En el modelo por dispositivo es común que enseñarte a usar el sistema —incluso ver tus propios reportes desde la casa— se cobre aparte.",
+  },
+];
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={hero.src}
+  ogType="article"
+  publishedTime="2026-11-17"
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Blog", href: "/blog/" },
+    { name: "Migrar de un POS por dispositivo", href: path },
+  ]}
+  jsonLd={[
+    articleSchema({
+      headline,
+      description,
+      path,
+      image: hero.src,
+      datePublished: "2026-11-17",
+    }),
+    faqPageSchema(faqs),
+  ]}
+>
+  <GuideHeader
+    category="Migración"
+    date="17 de noviembre, 2026"
+    datePublished="2026-11-17"
+    readingMinutes={8}
+    headline={headline}
+    subtitle={subtitle}
+    image={hero.src}
+    imageAlt="Historia de Tabstr: el costo de un POS con licencia por dispositivo y capacitación cobrada aparte"
+  />
+
+  <div class="blog-prose">
+    <p>
+      Migrar de punto de venta se siente enorme porque el proveedor anterior necesita que se sienta enorme. El local no puede parar, el menú tiene doscientos ítems, el mesero de la noche “no va a aprender otro sistema” y la impresora “solo funciona con ellos”. Parte de eso es operación real. Otra parte es el modelo: licencia por dispositivo, hardware de ellos y un curso pago para soltar lo que ya estás pagando.
+    </p>
+    <p>
+      Acá van los costos que no salen en la primera cotización y los pasos con los que Tabstr cambia un POS en Costa Rica. El resumen comercial está en
+      <a href="/migrar-de-pos/">migrar de POS</a>.
+      Por qué el cobro por pantalla es el problema de fondo está en
+      <a href="/blog/pos-sin-licencia-por-dispositivo/">POS sin licencia por dispositivo</a>.
+    </p>
+
+    <h2>Lo que la cotización no dice</h2>
+    <p>
+      El precio “por caja” parece ordenado hasta que contás las pantallas de verdad. Caja, cocina, barra y el celular del dueño son cuatro accesos. En un POS por dispositivo, cada uno puede ser otra licencia. La cocina no es un capricho: es donde la comanda tiene que verse. Cobrarla como si fuera otro negocio es el truco.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Costo escondido</th>
+            <th>Cómo se presenta</th>
+            <th>Qué te hace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Licencia por pantalla</td>
+            <td>“Cada caja tiene su propio control”</td>
+            <td>Agregar la tablet de cocina sube la mensualidad</td>
+          </tr>
+          <tr>
+            <td>Licencia para ver reportes fuera del local</td>
+            <td>“Acceso de administrador”</td>
+            <td>Pagar de nuevo por mirar tu propia venta. En el caso que originó Tabstr, eran más de $70 extra al mes</td>
+          </tr>
+          <tr>
+            <td>Capacitación obligatoria</td>
+            <td>“Onboarding profesional”</td>
+            <td>Un peaje para usar lo que ya contrataste. A Jorge le cobraron $250 para entrar desde la casa</td>
+          </tr>
+          <tr>
+            <td>Hardware rentado</td>
+            <td>“Equipo certificado”</td>
+            <td>La impresora y la computadora no son tuyas. Si te vas, se las llevan</td>
+          </tr>
+          <tr>
+            <td>Facturación en otra app</td>
+            <td>“Módulo de Hacienda” o un GTI aparte</td>
+            <td>Dos sistemas, dos cierres, y el comprobante se cae cuando la caja está llena</td>
+          </tr>
+          <tr>
+            <td>Sistema operativo amarrado</td>
+            <td>“Solo Windows” o “solo Android”</td>
+            <td>La Mac de la casa o el iPad de la barra quedan fuera, o pagan otra vez</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Esos números —más de $70 al mes y $250 de capacitación— no son un promedio del mercado. Son el cobro concreto que recibió el fundador de Tabstr por querer ver su bar desde la casa. La historia completa está en
+      <a href="/blog/tabstr-nacio-cobro-250/">por qué nació Tabstr</a>.
+      El patrón, en cambio, se repite: te venden dependencia y le dicen implementación.
+    </p>
+    <p>
+      Sumá un año. Cuatro licencias que no necesitabas, un acceso remoto, un curso y la renta del equipo. Aunque cada línea “no sea tanta plata”, el total es un empleado a medio tiempo que no atiende mesas. Y el día que querés irte, el miedo a perder el catálogo hace el resto del trabajo de retención.
+    </p>
+
+    <h2>El mito de que migrar para el local</h2>
+    <p>
+      La historia que te cuentan es esta: se borran los productos, el personal no entiende, hay que comprar todo nuevo y el viernes no se puede facturar. Eso era cierto cuando el proveedor necesitaba que fuera cierto.
+    </p>
+    <p>
+      Un cambio serio tiene riesgo. El riesgo no es “tocar el POS”. El riesgo es hacerlo el sábado a las 6 p. m., sin catálogo cargado, con Hacienda en otra aplicación y con un mesero que vio el sistema diez minutos antes del turno. Eso no es migrar. Es improvisar.
+    </p>
+
+    <h2>Pasos reales, en orden</h2>
+    <ol>
+      <li>
+        <strong>Inventario de lo que ya tenés.</strong> Pantallas, impresoras, datáfono, si facturás en GTI o en el mismo POS, y quién entra al sistema desde la casa. Si no podés listarlo, el proveedor actual tampoco te está dando control.
+      </li>
+      <li>
+        <strong>Excel del catálogo.</strong> Te pasamos una hoja. Ahí van productos, precios y categorías: el casado, el fresco, la cerveza, lo que ya vendés. No reescribís el menú dentro de un implementador que cobra por hora.
+      </li>
+      <li>
+        <strong>Nosotros lo cargamos.</strong> El día que abrís Tabstr, la base ya está. Empezás operando, no digitando ciento cincuenta productos con la fila en la puerta.
+      </li>
+      <li>
+        <strong>Hardware.</strong> Si la tablet y la impresora sirven, se quedan. Tabstr imprime por TCP, USB y Bluetooth, también en iPad. Si el equipo es rentado y se lo llevan, cotizamos reemplazo sin la cláusula de “solo nuestra marca”.
+      </li>
+      <li>
+        <strong>Capacitación incluida.</strong> El turno de la tarde y el de la noche tienen que poder cobrar, partir una cuenta y emitir el comprobante. Eso no se factura como un curso de $250.
+      </li>
+      <li>
+        <strong>Hacienda 4.4 en la misma caja.</strong> Factura y tiquete salen de Tabstr, sin exportar la venta a otra app. El detalle está en
+        <a href="/facturacion-electronica-hacienda-4-4/">facturación electrónica Hacienda 4.4</a>.
+      </li>
+      <li>
+        <strong>Un mes operando, sin pagar ese mes.</strong> Caja, comprobantes, SINPE y el equipo de verdad. Si no encaja, no hay un contrato armado para “probar”. Si encaja, seguís. Los planes están en
+        <a href="/precios/">precios</a>.
+      </li>
+    </ol>
+
+    <h2>Qué no prometemos</h2>
+    <p>
+      No prometemos que tu contador desaparece, ni que un menú mal armado se arregla solo, ni que el datáfono del banco se convierte en otra cosa. Tabstr es el punto de venta: caja, inventario, facturación 4.4, SINPE móvil, reservas, asistencia y el dueño en el celular. No es un ERP con nómina y contabilidad completa. Si eso es lo que estás buscando, este no es el sistema, y preferimos decirlo antes del Excel.
+    </p>
+    <p>
+      Tampoco hace falta apagar el POS viejo el primer día “para siempre” sin haber visto una venta. El mes gratis existe para que el local trabaje encima de Tabstr con datos reales. La pereza de quedarse está descrita, sin anestesia, en
+      <a href="/blog/tu-pos-no-es-lealtad/">tu POS no es lealtad</a>.
+    </p>
+
+    <h2>La pregunta que sí importa</h2>
+    <p>
+      No es “¿duele migrar?”. Es “¿cuánto estás pagando por no migrar?”. Licencia por la cocina, licencia por mirar el reporte en la noche, curso para que el personal pueda cobrar, y un comprobante que vive en otro programa. Eso ya es un proyecto. Solo que lo pagás todos los meses y no se termina.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    {
+      faqs.map((item) => (
+        <div>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <CtaBanner
+    title="Traé el catálogo. Nosotros lo dejamos listo."
+    body="Contanos de qué POS venís. Excel, capacitación incluida y un mes gratis para operar, no para imaginar."
+    label="Quiero migrar"
+  />
+  <BlogRelated currentHref={path} />
+</MarketingPage>

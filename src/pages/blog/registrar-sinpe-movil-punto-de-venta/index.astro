@@ -1,0 +1,173 @@
+---
+import MarketingPage from "../../../layouts/MarketingPage.astro";
+import CtaBanner from "../../../components/CtaBanner.astro";
+import GuideHeader from "../../../components/GuideHeader.astro";
+import BlogRelated from "../../../components/BlogRelated.astro";
+import hero from "../../../assets/images/tabs-management.webp";
+import { articleSchema, faqPageSchema } from "../../../data/seo";
+
+const path = "/blog/registrar-sinpe-movil-punto-de-venta/";
+const title = "Registrar SINPE Móvil en el punto de venta | Tabstr POS";
+const description =
+  "El SINPE en WhatsApp no cuadra la caja. Problemas reales del comprobante y cómo Tabstr lo registra en la misma venta, junto a efectivo, tarjeta y Bitcoin.";
+const headline = "Cómo registrar SINPE Móvil correctamente en tu punto de venta";
+const subtitle =
+  "El comprobante en el chat del personal no es un arqueo. Así se ata el SINPE a la cuenta, en el mismo POS.";
+
+const faqs = [
+  {
+    question: "¿Tabstr recibe el dinero del SINPE?",
+    answer:
+      "No. El cliente hace el SINPE Móvil al número del negocio, como siempre, desde su banco. Tabstr registra el pago en la venta y guarda el comprobante junto a esa cuenta. El dinero sigue en el banco. La prueba deja de vivir en un chat.",
+  },
+  {
+    question: "¿Qué problema tiene anotar el SINPE como efectivo?",
+    answer:
+      "La caja física no va a cuadrar con el sistema, o va a cuadrar de casualidad. El efectivo de verdad y el SINPE se mezclan, y a la hora del arqueo nadie sabe si faltan colones en el cajón o si faltó registrar una transferencia.",
+  },
+  {
+    question: "¿Se puede cobrar si se va el internet?",
+    answer:
+      "Tabstr sigue vendiendo sin conexión y sincroniza cuando vuelve la red. El SINPE del cliente sí necesita que su banco le funcione. Lo que no debería pasar es perder la venta ya registrada solo porque se cayó el Wi-Fi del local.",
+  },
+  {
+    question: "¿El SINPE reemplaza la factura electrónica?",
+    answer:
+      "No. SINPE es la forma de pago. La factura o el tiquete electrónico 4.4 es el comprobante fiscal. En Tabstr los dos viven en la misma venta: cobrás y el comprobante de Hacienda sale del POS, sin una segunda app.",
+  },
+];
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={hero.src}
+  ogType="article"
+  publishedTime="2026-11-17"
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Blog", href: "/blog/" },
+    { name: "SINPE Móvil en el POS", href: path },
+  ]}
+  jsonLd={[
+    articleSchema({
+      headline,
+      description,
+      path,
+      image: hero.src,
+      datePublished: "2026-11-17",
+    }),
+    faqPageSchema(faqs),
+  ]}
+>
+  <GuideHeader
+    category="Caja"
+    date="17 de noviembre, 2026"
+    datePublished="2026-11-17"
+    readingMinutes={7}
+    headline={headline}
+    subtitle={subtitle}
+    image={hero.src}
+    imageAlt="Mesas y cuentas en Tabstr POS, donde el pago por SINPE Móvil queda registrado en la venta"
+  />
+
+  <div class="blog-prose">
+    <p>
+      En Costa Rica el SINPE Móvil ya es una forma de pago normal en la soda, el bar y el restaurante. El problema no es que el cliente quiera pagar así. El problema es que muchos puntos de venta no tienen dónde poner ese pago. Entonces el comprobante se va al WhatsApp del mesero, la venta se cierra como efectivo y el arqueo de la noche es un acto de fe.
+    </p>
+    <p>
+      Registrar SINPE bien significa una sola cosa: el pago queda amarrado a la cuenta que se cobró, con el comprobante, dentro del POS. El resumen del producto está en
+      <a href="/sinpe-movil-pos/">SINPE móvil en el POS</a>.
+    </p>
+
+    <h2>Lo que se rompe cuando el SINPE vive en el chat</h2>
+    <ul>
+      <li>
+        <strong>La foto se pierde.</strong> El grupo del personal se limpia, el teléfono se cambia o el mesero borra el chat el domingo. El cliente tiene su comprobante. Vos no.
+      </li>
+      <li>
+        <strong>Se anota como efectivo.</strong> El cajón tiene menos plata de la que el sistema dice, porque esos ₡7.380 nunca fueron billetes. O al revés: alguien marca SINPE y el efectivo sí entró.
+      </li>
+      <li>
+        <strong>El SINPE cae al número personal.</strong> “Pasalo al mío y yo se lo doy al local.” A veces se lo dan. A veces se les olvida. El POS ni se entera.
+      </li>
+      <li>
+        <strong>El mismo pago se usa dos veces.</strong> Una captura vieja, un monto parecido, una mesa que “ya pagó”. Sin el comprobante pegado a la cuenta, el cajero no tiene con qué discutir.
+      </li>
+      <li>
+        <strong>El nombre no coincide.</strong> Pagó la pareja, la cuenta está a nombre del cliente, y en el banco aparece un tercero. Si no guardaste el comprobante en esa venta, el lunes es un misterio.
+      </li>
+      <li>
+        <strong>El cierre no habla con el banco.</strong> Sumás los SINPE del chat en una calculadora y los comparás con el movimiento. Falta uno. Sobra uno. Nadie sabe cuál mesa fue.
+      </li>
+    </ul>
+    <p>
+      Nada de eso es un problema del Banco Central. Es un problema de registro. El dinero puede estar bien transferido y la caja igual estar ciega.
+    </p>
+
+    <h2>Cómo se registra, paso a paso</h2>
+    <p>
+      El flujo que tiene que existir, lo use Tabstr u otro sistema, es este. Si tu POS no lo puede hacer, el chat va a seguir siendo la caja.
+    </p>
+    <ol>
+      <li>La mesa o la cuenta sigue abierta hasta que el pago esté identificado. No la cerrés “y después vemos”.</li>
+      <li>El cliente envía el SINPE al número del negocio, por el monto de la cuenta. Ese monto incluye consumo, IVA y, si hubo servicio en mesa, el 10%. El desglose de esas cifras está en la guía de <a href="/blog/servicio-10-iva-factura-electronica-4-4/">servicio e IVA</a>.</li>
+      <li>El cajero elige SINPE Móvil como método de pago de esa venta. No efectivo. No “otros”.</li>
+      <li>Se captura el comprobante y queda guardado en esa cuenta: monto, hora, referencia. No en la galería de un teléfono personal.</li>
+      <li>Ahí sí se cierra la venta y sale el tiquete o la factura electrónica. El pago y el comprobante fiscal son dos cosas distintas y las dos tienen que existir.</li>
+      <li>En el arqueo, el total de SINPE del sistema se compara con el banco. La diferencia, si la hay, tiene un número de cuenta al lado, no un “creo que fue la mesa 4”.</li>
+    </ol>
+
+    <h2>Un ejemplo de una mesa</h2>
+    <p>
+      Cuenta de ₡12.500 en la mesa 4, 8:42 p. m. El cliente muestra la pantalla del banco. Si el mesero le toma una foto y la manda al grupo “Caja”, pasan tres cosas malas: la mesa puede cerrarse como efectivo, la foto queda en seis teléfonos y el dueño no puede buscar “mesa 4” el lunes.
+    </p>
+    <p>
+      Si el pago se registra en el POS, la venta dice SINPE Móvil, ₡12.500, mesa 4, con el comprobante adjunto. Efectivo, tarjeta y Bitcoin siguen disponibles para la mesa de al lado. Ningún método obliga a mentir sobre el otro. El local acepta cómo paga la gente, y el sistema lo escribe como pasó.
+    </p>
+
+    <h2>Cómo funciona en Tabstr</h2>
+    <p>
+      Tabstr captura y registra el comprobante del SINPE en el mismo flujo de venta. No es un apunte en un cuaderno ni una foto suelta. Queda en la cuenta. Al lado están efectivo, tarjeta y Bitcoin. La factura o el tiquete de Hacienda 4.4 sale de esa misma venta, sin pasar la cuenta a otra aplicación. Eso está en
+      <a href="/facturacion-electronica-hacienda-4-4/">Hacienda 4.4</a>.
+    </p>
+    <p>
+      Tabstr no sustituye al banco y no “recibe” el SINPE por vos. El cliente transfiere a tu número. Lo que el POS hace es dejar de perder la prueba. Si se cae el internet del local, Tabstr sigue operando y sincroniza cuando la red vuelve. La transferencia del cliente depende de su propio banco. La venta que ya registraste no debería desaparecer con el Wi-Fi.
+    </p>
+    <p>
+      En un restaurante, esa cuenta es una mesa. El recorrido de salón, cocina y caja está en el
+      <a href="/pos-para-restaurantes/">POS para restaurantes</a>.
+      Si hoy el SINPE se anota en el sistema viejo como “transferencia” genérica, sin comprobante, el cambio no es un curso de dos días. Es dejar de usar el chat como libro de caja. Cómo se hace la migración, con el catálogo listo y la capacitación incluida, está en
+      <a href="/migrar-de-pos/">migrar de POS</a>.
+    </p>
+
+    <h2>Reglas simples para el turno</h2>
+    <ul>
+      <li>Un solo número de SINPE del negocio. El del mesero no es un respaldo. Es un hueco.</li>
+      <li>Sin comprobante en la venta, la mesa no se cierra.</li>
+      <li>El monto del SINPE tiene que ser el monto de la cuenta. Un “te debo mil” se anota como lo que es, no se esconde dentro de la transferencia.</li>
+      <li>Al cierre, el total SINPE del POS se compara con el banco antes de que el personal se vaya.</li>
+    </ul>
+    <p>
+      Si el punto de venta no deja hacer eso sin pelearse con la pantalla, el personal va a volver al chat. La herramienta tiene que ser más corta que el grupo de WhatsApp. Si no, ya perdiste.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    {
+      faqs.map((item) => (
+        <div>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <CtaBanner
+    title="El comprobante de SINPE tiene que vivir en la venta"
+    body="Agendá una demo o empezá el mes gratis. Te mostramos el pago registrado en la cuenta, al lado de Hacienda 4.4."
+    label="Empezar el mes gratis"
+  />
+  <BlogRelated currentHref={path} />
+</MarketingPage>
