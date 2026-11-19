@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Industries from "../components/Industries.astro";
 import { Navbar } from "../components/Navbar.tsx";
 import Clients from "../components/Clients.astro";
 import DeviceShowcase from "../components/DeviceShowcase.astro";
@@ -41,6 +42,7 @@ import { FAQ_ITEMS } from "../data/faq";
   <Navbar client:load />
   <Hero />
   <Clients />
+  <Industries />
   <DeviceShowcase />
   <BentoFeatures />
   <AiSection />
@@ -51,8 +53,9 @@ import { FAQ_ITEMS } from "../data/faq";
       <p class="text-secondaryText leading-relaxed text-lg mb-6">{ENTITY_SENTENCE}</p>
       <h2 class="text-2xl font-bold text-primaryText mb-4">Qué es Tabstr y en qué se diferencia</h2>
       <p class="text-secondaryText leading-relaxed mb-4">
-        Tabstr es un POS moderno para restaurantes y negocios en Costa Rica. El precio no sube
-        cada vez que encendés otra pantalla. Estas son las piezas que el local usa en el mismo sistema:
+        Tabstr es un POS moderno para restaurantes y bares en Costa Rica, y también para retail,
+        minisupers y licoreras. El precio no sube cada vez que encendés otra pantalla. Estas son
+        las piezas que el local usa en el mismo sistema:
       </p>
       <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
         <li>Sin licencia por dispositivo: caja, cocina, barra y el celular del dueño.</li>
@@ -64,10 +67,13 @@ import { FAQ_ITEMS } from "../data/faq";
         <li>Asistencia del personal con reconocimiento facial y reporte de horas.</li>
         <li>Sigue vendiendo si se va el internet y sincroniza cuando vuelve la red.</li>
         <li>Migración del catálogo por Excel y capacitación incluida. El primer mes es gratis.</li>
+        <li>Integración con Shopify si tenés tienda física y tienda en línea.</li>
       </ul>
       <p class="text-secondaryText leading-relaxed mb-8">
         El detalle de mesas y cocina está en
         <a href="/pos-para-restaurantes/" class="text-secondaryColor hover:underline">POS para restaurantes</a>.
+        Retail, minisupers, licoreras y Shopify están en
+        <a href="/pos-para-comercios/" class="text-secondaryColor hover:underline">POS para comercios</a>.
         Cómo se arma el 10% de servicio y el IVA está en
         <a href="/blog/servicio-10-iva-factura-electronica-4-4/" class="text-secondaryColor hover:underline">la guía de factura 4.4</a>.
         Por qué el cobro por pantalla ya no cierra está en

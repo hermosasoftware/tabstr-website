@@ -72,8 +72,9 @@ export const FEATURES: Feature[] = [
     visual: "offline",
   },
   {
-    title: "Pedidos en línea por API",
-    description: "Los pedidos del sitio o de otra app entran directo al POS.",
+    title: "Shopify y pedidos en línea",
+    description:
+      "La tienda física se integra con Shopify. Los pedidos del sitio o de otra app entran al POS.",
     icon: "globe",
     href: "/pedidos-en-linea-pos/",
     size: "sm",

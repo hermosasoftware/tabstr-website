@@ -1,0 +1,67 @@
+---
+import { INDUSTRIES } from "../data/industries";
+---
+
+<section class="relative w-full bg-bgDark1 pb-16 sm:pb-20" aria-labelledby="industries-heading">
+  <div class="mx-auto w-11/12 max-w-6xl">
+    <div class="max-w-3xl mb-10" data-reveal>
+      <p class="block-subtitle mb-3">Industrias</p>
+      <h2
+        id="industries-heading"
+        class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-primaryText"
+      >
+        Restaurantes y bares siguen en el centro
+      </h2>
+      <p class="mt-4 text-secondaryText leading-relaxed">
+        Ahí empezamos y ahí seguimos. El mismo POS ahora también cubre retail, minisupers
+        y licoreras. Si el local vende en Shopify, Tabstr se integra con esa tienda.
+      </p>
+    </div>
+
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {
+        INDUSTRIES.map((industry, index) => (
+          <li data-reveal style={`--reveal-delay: ${index * 60}ms`}>
+            <a href={industry.href} class="spotlight-card group flex h-full flex-col p-6 sm:p-7">
+              <div class="relative z-10 flex items-start justify-between gap-4">
+                <h3 class="font-display text-xl font-bold tracking-tight text-primaryText">
+                  {industry.name}
+                </h3>
+                {industry.focus ? (
+                  <span class="shrink-0 rounded-full bg-brand-gradient px-2.5 py-0.5 text-[0.7rem] font-bold uppercase tracking-wider text-primaryText">
+                    El foco
+                  </span>
+                ) : (
+                  <span
+                    class="text-secondaryText transition duration-300 group-hover:text-secondaryColor group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                )}
+              </div>
+              <p class="relative z-10 mt-3 text-secondaryText leading-relaxed">{industry.summary}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a
+      href="/pos-para-comercios/#shopify"
+      class="spotlight-card group mt-4 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7"
+      data-reveal
+    >
+      <div class="relative z-10">
+        <p class="text-sm font-bold text-secondaryColor">Tienda física y Shopify</p>
+        <p class="mt-2 max-w-2xl text-secondaryText leading-relaxed">
+          Si tenés local y tienda en Shopify, el POS se integra con tu tienda en línea.
+          La caja del mostrador y la tienda web dejan de vivir como dos sistemas sueltos.
+        </p>
+      </div>
+      <span class="relative z-10 shrink-0 text-sm font-semibold text-primaryText transition group-hover:text-secondaryColor">
+        Ver la integración →
+      </span>
+    </a>
+  </div>
+</section>

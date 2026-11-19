@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
 import { Navbar } from "../components/Navbar.tsx";
 import { Footer } from "../components/Footer.jsx";
 import "../styles/Theme.css";
@@ -26,7 +27,7 @@ import "../styles/Theme.css";
                 <strong>Última actualización:</strong> 17/11/2026
             </p>
             <p class="mb-6">
-                Tabstr es un sistema de punto de venta (POS) para restaurantes y comercios en Costa Rica. Corre en celular, tablet o computadora, no cobra licencia por dispositivo e incluye facturación electrónica Hacienda 4.4.
+                {ENTITY_SENTENCE}
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-8 mb-4">1. Introducción</h2>

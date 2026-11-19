@@ -5,9 +5,9 @@ import CtaBanner from "../components/CtaBanner.astro";
 import { PEDIDOS_FAQ } from "../data/faq";
 import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
 
-const title = "Pedidos en línea al POS | API de Tabstr Costa Rica";
+const title = "Pedidos en línea y Shopify | Tabstr POS Costa Rica";
 const description =
-  "Tabstr POS recibe pedidos del sitio web o de una app de pedidos por API. El encargado acepta o rechaza y pone el tiempo de preparación.";
+  "Tabstr POS se integra con Shopify si tenés tienda física y en línea. También recibe pedidos del sitio o de una app por API.";
 const canonicalPath = "/pedidos-en-linea-pos/";
 ---
 
@@ -24,22 +24,33 @@ const canonicalPath = "/pedidos-en-linea-pos/";
 >
   <p class="block-subtitle mb-4">API de pedidos</p>
   <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
-    Pedidos del sitio web o de otra app, directo en el POS
+    Shopify y pedidos en línea, directo en el POS
   </h1>
   <p class="text-lg text-secondaryText leading-relaxed mb-6">
-    Tabstr expone un API para que una app de pedidos o el sitio del restaurante
-    mande la orden al punto de venta. El pedido aparece en Tabstr POS. El encargado
-    lo acepta o lo rechaza y puede indicar cuánto tarda en estar listo.
+    Si tenés tienda física y tienda en Shopify, Tabstr POS se integra con esa tienda.
+    También expone un API para que una app de pedidos o el sitio del local mande la
+    orden al punto de venta. El pedido aparece en Tabstr. El encargado lo acepta o
+    lo rechaza y puede indicar cuánto tarda en estar listo.
   </p>
   <p class="text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
 
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Tienda física y Shopify</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Si el negocio tiene local y también tienda en Shopify, Tabstr POS se integra con
+    esa tienda. La caja del mostrador y la tienda en línea quedan conectadas. Aplica
+    en retail, minisupers y licoreras, y en cualquier local que ya vende en la web.
+    El recorrido por industria está en
+    <a href="/pos-para-comercios/#shopify" class="text-secondaryColor hover:underline">POS para comercios</a>.
+  </p>
+
   <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Dos casos que vemos seguido</h2>
   <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Una tienda Shopify junto al local físico: el POS se integra con esa tienda.</li>
     <li>Una app de pedidos externa: la orden no se reescribe a mano en la caja.</li>
     <li>El sitio web del restaurante: el cliente pide en la página y el POS la recibe.</li>
   </ul>
   <p class="text-secondaryText leading-relaxed mb-8">
-    No entra sola a cocina. Alguien en el local decide si se acepta y el tiempo.
+    En un restaurante, la orden no entra sola a cocina. Alguien en el local decide si se acepta y el tiempo.
     Hacienda 4.4 sigue en el mismo Tabstr, no en un segundo programa.
   </p>
 
@@ -53,8 +64,8 @@ const canonicalPath = "/pedidos-en-linea-pos/";
   <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Preguntas sobre pedidos en línea</h2>
   <FaqAccordion items={PEDIDOS_FAQ} questionLevel="h3" />
   <CtaBanner
-    title="¿Los pedidos del sitio se anotan a mano?"
-    body="Contanos qué app o qué web usás. Te decimos cómo cae la orden en Tabstr POS."
+    title="¿La tienda de Shopify y la caja van por separado?"
+    body="Contanos si vendés en Shopify, en tu sitio o en otra app. Te decimos cómo queda conectado a Tabstr POS."
     label="Pedir el API"
   />
 </MarketingPage>

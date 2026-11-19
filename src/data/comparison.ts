@@ -91,6 +91,13 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
     status: { tabstr: "ok", licensed: "no", cloud: "partial" },
   },
   {
+    feature: "Shopify",
+    tabstr: "El POS del local se integra con tu tienda Shopify",
+    licensed: "Caja física y tienda en línea por separado",
+    cloud: "A veces un conector, a menudo otro inventario",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
+  },
+  {
     feature: "Mensajes al equipo",
     tabstr: "El aviso del admin aparece en el encabezado del POS",
     licensed: "WhatsApp, pizarra o un módulo que nadie abre",
@@ -115,8 +122,9 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
 
 export const AUDIENCE_FIT = {
   for: [
-    "Restaurantes, bares, cafés y comercios en Costa Rica que necesitan un POS con Hacienda 4.4.",
+    "Restaurantes y bares en Costa Rica que necesitan un POS con Hacienda 4.4. También retail, minisupers y licoreras.",
     "Restaurantes que quieren reservas en el mismo sistema — y un link para que el cliente reserve solo.",
+    "Negocios con tienda física y tienda en Shopify que quieren el POS integrado con esa tienda.",
     "Negocios que quieren que el personal marque entrada y salida con el rostro, y un reporte de horas.",
     "Dueños que quieren ver ventas y cambiar precios desde el celular, sin una licencia extra.",
     "Negocios cansados de pagar por cada pantalla o de amarrarse al hardware del proveedor.",

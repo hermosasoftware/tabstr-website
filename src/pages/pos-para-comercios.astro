@@ -1,11 +1,13 @@
 ---
 import MarketingPage from "../layouts/MarketingPage.astro";
 import CtaBanner from "../components/CtaBanner.astro";
-import { ENTITY_SENTENCE } from "../data/seo";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
+import { COMERCIOS_FAQ } from "../data/faq";
 
-const title = "POS para comercios Costa Rica | Tabstr para tiendas, cafés y bares";
+const title = "POS para retail, minisupers y licoreras | Tabstr Costa Rica";
 const description =
-  "Tabstr POS para comercios en Costa Rica: caja, inventario, control de asistencia, SINPE y facturación Hacienda 4.4, sin licencia por dispositivo.";
+  "Tabstr POS para retail, minisupers y licoreras en Costa Rica: caja, inventario, Hacienda 4.4 e integración con Shopify si tenés tienda física y en línea.";
 const canonicalPath = "/pos-para-comercios/";
 ---
 
@@ -17,26 +19,62 @@ const canonicalPath = "/pos-para-comercios/";
     { name: "Inicio", href: "/" },
     { name: "POS para comercios", href: canonicalPath },
   ]}
+  jsonLd={faqPageSchema(COMERCIOS_FAQ)}
 >
   <p class="block-subtitle mb-4">Tabstr para comercios</p>
   <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
-    POS para comercios, cafés y bares en Costa Rica
+    POS para retail, minisupers y licoreras en Costa Rica
   </h1>
   <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
   <p class="text-secondaryText leading-relaxed mb-6">
-    Si vendés al detalle —tienda, café, panadería, bar o un mix— el punto de venta tiene
-    que ser rápido en caja y claro en inventario. Tabstr POS para comercios no te encierra
-    en una sola computadora Windows ni te cobra cada vez que ponés otra pantalla.
+    Restaurantes y bares siguen siendo el centro de Tabstr. El mismo punto de venta
+    ahora también cubre la tienda: retail, minisupers y licoreras. La caja tiene que
+    ser rápida, el inventario tiene que cuadrar y Hacienda 4.4 sale en la misma venta,
+    sin una licencia por cada pantalla.
   </p>
 
-  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Caja e inventario en el mismo hilo</h2>
+  <h2 id="retail" class="scroll-mt-28 text-2xl font-bold text-primaryText mt-10 mb-4">Retail</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Una tienda al detalle no abre mesas: abre la venta, cobra y sigue. Tabstr POS corre
+    en el celular, la tablet o la computadora del mostrador. El dueño cambia precios y
+    mira el día desde el teléfono, sin pagar otra licencia para ver reportes.
+  </p>
   <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
-    <li>Venta en el dispositivo que ya usa tu personal.</li>
-    <li>Importación de facturas XML para actualizar existencias.</li>
-    <li>IA que sugiere pedidos según ventas y fechas especiales.</li>
-    <li>Hacienda 4.4 y SINPE móvil dentro del flujo, no al lado.</li>
-    <li>Control de asistencia: el personal marca entrada y salida con el rostro.</li>
+    <li>Venta en el dispositivo que ya usa el personal.</li>
+    <li>Inventario que se actualiza con la factura XML del proveedor.</li>
+    <li>Hacienda 4.4 y SINPE móvil dentro del cobro, no en otra app.</li>
   </ul>
+
+  <h2 id="minisupers" class="scroll-mt-28 text-2xl font-bold text-primaryText mt-10 mb-4">Minisupers</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    El minisuper vive de la fila corta y del estante que no se vacía a media tarde.
+    Tabstr cubre la caja del local. Si en hora pico necesitás una segunda caja, esa
+    pantalla no suma otra licencia. Las sugerencias de stock con IA miran tus ventas
+    y fechas como Navidad o Semana Santa, para que el pedido al proveedor no salga
+    de memoria.
+  </p>
+
+  <h2 id="licoreras" class="scroll-mt-28 text-2xl font-bold text-primaryText mt-10 mb-4">Licoreras</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Una licorera necesita el mismo hilo que el resto del retail en Costa Rica: producto,
+    existencia, precio y comprobante electrónico. Tabstr POS registra la venta en el
+    mostrador, con inventario y facturación Hacienda 4.4. El control de asistencia del
+    equipo está en el mismo sistema, con entrada y salida por reconocimiento facial.
+  </p>
+
+  <h2 id="shopify" class="scroll-mt-28 text-2xl font-bold text-primaryText mt-10 mb-4">
+    Tienda física y Shopify
+  </h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Si tenés local y también tienda en Shopify, no hace falta llevar dos operaciones a
+    mano. Tabstr POS se integra con tu Shopify: la caja del local y la tienda en línea
+    quedan conectadas.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Si el pedido no viene de Shopify sino de tu propio sitio o de otra app, también puede
+    entrar al POS por API. El encargado lo acepta o lo rechaza. El detalle está en
+    <a href="/pedidos-en-linea-pos/" class="text-secondaryColor hover:underline">pedidos en línea</a>.
+  </p>
 
   <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Control de asistencia, sin un reloj aparte</h2>
   <p class="text-secondaryText leading-relaxed mb-8">
@@ -53,5 +91,12 @@ const canonicalPath = "/pos-para-comercios/";
     <a href="/migrar-de-pos/" class="text-secondaryColor hover:underline">la migración no empieza en cero</a>.
   </p>
 
-  <CtaBanner />
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Preguntas sobre comercios</h2>
+  <FaqAccordion items={COMERCIOS_FAQ} questionLevel="h3" />
+
+  <CtaBanner
+    title="¿Tu tienda todavía anota el Shopify aparte?"
+    body="Retail, minisuper o licorera: te mostramos la caja, el inventario y, si aplica, la integración con tu tienda en Shopify."
+    label="Empezar el mes gratis"
+  />
 </MarketingPage>

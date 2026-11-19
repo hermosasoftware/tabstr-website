@@ -11,15 +11,15 @@ export const BRAND_ALTERNATE_NAMES = [
 ] as const;
 
 export const ENTITY_SENTENCE =
-  "Tabstr es un sistema de punto de venta (POS) para restaurantes y comercios en Costa Rica. Corre en celular, tablet o computadora, no cobra licencia por dispositivo e incluye facturación electrónica Hacienda 4.4.";
+  "Tabstr es un sistema de punto de venta (POS) para restaurantes y bares en Costa Rica, y también para retail, minisupers y licoreras. Corre en celular, tablet o computadora, no cobra licencia por dispositivo e incluye facturación electrónica Hacienda 4.4.";
 
 export const ENTITY_DESCRIPTION =
-  "Sistema POS para restaurantes y comercios en Costa Rica, con facturación electrónica Hacienda 4.4.";
+  "Sistema POS para restaurantes, bares, retail, minisupers y licoreras en Costa Rica, con facturación electrónica Hacienda 4.4.";
 
 export const HOME_TITLE = "Tabstr POS Costa Rica | Punto de venta con Hacienda 4.4";
 
 export const HOME_DESCRIPTION =
-  "Tabstr es un POS para restaurantes y comercios en Costa Rica. Facturación electrónica Hacienda 4.4, sin licencia por dispositivo, en celular, tablet o PC.";
+  "Tabstr es un POS para restaurantes, bares, retail, minisupers y licoreras en Costa Rica. Hacienda 4.4, sin licencia por dispositivo, con integración a Shopify.";
 
 export const FREE_MONTH_SENTENCE =
   "Los negocios pueden usar Tabstr un mes gratis para operar de verdad: caja, Hacienda 4.4 y el local en marcha, no una demo de diez minutos.";
@@ -131,6 +131,7 @@ export function softwareSchema(): JsonLd {
       "Compatible con iPad",
       "Impresoras por TCP, USB y Bluetooth",
       "API para pedidos del sitio web y de apps de pedidos",
+      "Integración con Shopify para tienda física y tienda en línea",
       "Mensajes internos en el encabezado del POS",
     ],
     areaServed: {
@@ -268,7 +269,7 @@ export const RELATED_PAGES: ReadonlyArray<{
   {
     href: "/pedidos-en-linea-pos/",
     title: "Pedidos en línea",
-    description: "El sitio o la app manda la orden al POS; el encargado acepta.",
+    description: "Shopify si tenés tienda física, y pedidos del sitio o de una app directo al POS.",
   },
   {
     href: "/impresoras-pos-ipad/",
@@ -278,7 +279,7 @@ export const RELATED_PAGES: ReadonlyArray<{
   {
     href: "/pos-para-comercios/",
     title: "POS para comercios",
-    description: "Caja, inventario, asistencia y facturación para tiendas, cafés y bares.",
+    description: "Retail, minisupers y licoreras, con integración a Shopify si tenés tienda en línea.",
   },
   {
     href: "/migrar-de-pos/",

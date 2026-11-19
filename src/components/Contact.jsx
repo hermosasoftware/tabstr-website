@@ -251,9 +251,11 @@ export const Contact = () => {
                 <option value="restaurant-multi">
                   Restaurante o bar — 2 o más dispositivos
                 </option>
-                <option value="retail-1">Tienda o retail — 1 dispositivo</option>
+                <option value="retail-1">
+                  Retail, minisuper o licorera — 1 dispositivo
+                </option>
                 <option value="retail-multi">
-                  Tienda o retail — 2 o más dispositivos
+                  Retail, minisuper o licorera — 2 o más dispositivos
                 </option>
                 <option value="multi-location">Varios locales o sucursales</option>
                 <option value="exploring">Aún evaluando opciones</option>

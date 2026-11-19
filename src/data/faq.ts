@@ -7,7 +7,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "¿Qué es Tabstr?",
     answer:
-      "Tabstr es un sistema de punto de venta (POS) para restaurantes y comercios en Costa Rica. Corre en celular, tablet o computadora, no cobra licencia por dispositivo e incluye facturación electrónica Hacienda 4.4. Lo diseñamos para que el dueño vea ventas, cambie precios y controle el local sin pagar una licencia extra ni amarrarse a un sistema operativo.",
+      "Tabstr es un sistema de punto de venta (POS) para restaurantes y bares en Costa Rica, y también para retail, minisupers y licoreras. Corre en celular, tablet o computadora, no cobra licencia por dispositivo e incluye facturación electrónica Hacienda 4.4. Si tenés tienda física y tienda en Shopify, el POS se integra con tu tienda en línea. Lo diseñamos para que el dueño vea ventas, cambie precios y controle el local sin pagar una licencia extra ni amarrarse a un sistema operativo.",
   },
   {
     question: "¿Tabstr funciona con facturación electrónica 4.4 de Hacienda?",
@@ -37,7 +37,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "¿Tabstr registra pagos por SINPE móvil?",
     answer:
-      "Sí. Tabstr POS permite capturar y registrar el comprobante de un pago por SINPE móvil en el mismo flujo de venta. No es un apunte en un cuaderno ni una foto suelta en el chat del personal: queda atado a la cuenta. Eso importa en restaurantes y comercios de Costa Rica donde SINPE ya es parte de la caja.",
+      "Sí. Tabstr POS permite capturar y registrar el comprobante de un pago por SINPE móvil en el mismo flujo de venta. No es un apunte en un cuaderno ni una foto suelta en el chat del personal: queda atado a la cuenta. Eso importa en restaurantes, bares, minisupers y el resto de comercios de Costa Rica, donde SINPE ya es parte de la caja.",
   },
   {
     question: "¿Sigue funcionando si se va el internet?",
@@ -47,7 +47,17 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "¿Tabstr es solo para restaurantes?",
     answer:
-      "No. Tabstr POS sirve para restaurantes, bares, cafés y comercios en Costa Rica. El hilo común es caja, inventario, facturación electrónica Hacienda 4.4 y control del dueño. Si tu operación es una tienda, una soda o un local con mesas, el mismo sistema cubre el punto de venta. Los restaurantes, además, tienen reservas. El control de asistencia del equipo está en el mismo POS.",
+      "Restaurantes y bares siguen siendo el foco. Tabstr POS también sirve para retail, minisupers y licoreras, además de cafés y sodas. El hilo común es caja, inventario, facturación electrónica Hacienda 4.4 y control del dueño. Los restaurantes, además, tienen reservas. Si la tienda física también vende en Shopify, el POS se integra con esa tienda.",
+  },
+  {
+    question: "¿Tabstr sirve para un minisuper o una licorera?",
+    answer:
+      "Sí. Además de restaurantes y bares, Tabstr POS cubre retail, minisupers y licoreras: caja, inventario, facturación electrónica Hacienda 4.4 y SINPE en la misma venta, sin licencia por dispositivo. El detalle de cada operación está en la página de POS para comercios.",
+  },
+  {
+    question: "¿Tabstr se integra con Shopify?",
+    answer:
+      "Sí, si tenés tienda física y también tienda en Shopify. Tabstr POS se integra con tu Shopify para que la caja del local y la tienda en línea no vivan como dos sistemas sueltos. Si el pedido viene de tu propio sitio o de otra app, también puede entrar al POS por API: el encargado lo acepta o lo rechaza.",
   },
   {
     question: "¿Tabstr incluye reservas para restaurantes?",
@@ -126,7 +136,16 @@ export const PEDIDOS_FAQ = FAQ_ITEMS.filter((item) =>
   [
     "¿Puedo conectar pedidos de mi sitio web o de otra app al POS?",
     "¿El encargado puede aceptar o rechazar un pedido en línea?",
+    "¿Tabstr se integra con Shopify?",
     "¿Cómo se enteran los empleados de un aviso importante?",
+  ].includes(item.question),
+);
+
+export const COMERCIOS_FAQ = FAQ_ITEMS.filter((item) =>
+  [
+    "¿Tabstr es solo para restaurantes?",
+    "¿Tabstr sirve para un minisuper o una licorera?",
+    "¿Tabstr se integra con Shopify?",
   ].includes(item.question),
 );
 

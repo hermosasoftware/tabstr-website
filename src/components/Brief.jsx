@@ -214,9 +214,30 @@ export const Brief = () => {
                   <option value="bar">Bar</option>
                   <option value="restaurant">Restaurante</option>
                   <option value="ventanilla">Ventanilla / soda</option>
-                  <option value="tienda">Tienda</option>
+                  <option value="tienda">Retail / tienda</option>
+                  <option value="minisuper">Minisuper</option>
+                  <option value="licorera">Licorera</option>
                   <option value="cafeteria">Cafetería</option>
                   <option value="other">Otro</option>
+                </select>
+              </div>
+
+              <div className="block sm:col-span-2">
+                <label htmlFor="shopify" className="contact-label">
+                  ¿Tiene tienda en Shopify?
+                </label>
+                <select
+                  name="shopify"
+                  id="shopify"
+                  className="contact-input"
+                  defaultValue=""
+                >
+                  <option value="">Selecciona (opcional)</option>
+                  <option value="physical-and-shopify">
+                    Sí, tienda física y Shopify
+                  </option>
+                  <option value="shopify-only">Solo Shopify, sin local todavía</option>
+                  <option value="no">No</option>
                 </select>
               </div>
 
